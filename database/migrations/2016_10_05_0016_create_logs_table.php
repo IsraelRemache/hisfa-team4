@@ -17,7 +17,8 @@ class CreateLogsTable extends Migration
         {
             $table->increments('id');
             $table->string('name', 50);
-            $table->integer('length');
+            $table->integer('length_id')->unsigned();
+            $table->foreign('length_id')->references('id')->on('lengths');
             $table->integer('quantity');
             $table->timestamps();
             $table->integer('user_id')->unsigned();
