@@ -9,12 +9,12 @@
     <div class="container-fluid">
         <h1>Our App Logo</h1>
         
-        @yield('content')
+       
         
     </div>
    
     
-    @yield('footerscript')
+
     
 </body>
 </html>
