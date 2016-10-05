@@ -27,6 +27,6 @@ class CreateLengthsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('lengths');
     }
 }

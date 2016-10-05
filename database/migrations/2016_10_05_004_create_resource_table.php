@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWastesTable extends Migration
+class CreateResourceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateWastesTable extends Migration
      */
     public function up()
     {
-        Schema::create('wastes', function (Blueprint $table)
+        Schema::create('resources', function (Blueprint $table)
         {
             $table->increments('id');
             $table->string('name', 50);
             $table->integer('quantity');
-            $table->string('type', 50);
+            $table->string('img', 255);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateWastesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wastes');
+        Schema::drop('resources');
     }
 }
