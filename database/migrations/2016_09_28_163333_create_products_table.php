@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('length');
             $table->integer('quantity');
-            $table->integer('qualities_id')->unsigned();
-            $table->foreign('qualities_id')->references('id')->on('qualities');
+            $table->string('img', 255);
+            $table->timestamps();
         });
     }
 
