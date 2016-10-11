@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResourceTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateResourceTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table)
-        {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50);
+            $table->integer('length_id')->unsigned();
+            $table->foreign('length_id')->references('id')->on('lengths');
             $table->integer('quantity');
-            $table->string('img', 255);
+            $table->integer('quality_id')->unsigned();
+            $table->foreign('quality_id')->references('id')->on('qualities');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateResourceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
+        Schema::drop('products');
     }
 }

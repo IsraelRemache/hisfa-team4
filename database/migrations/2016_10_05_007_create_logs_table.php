@@ -17,13 +17,14 @@ class CreateLogsTable extends Migration
         {
             $table->increments('id');
             $table->string('name', 50);
-            $table->integer('length');
+            $table->integer('length_id')->unsigned();
+            $table->foreign('length_id')->references('id')->on('lengths');
             $table->integer('quantity');
-            $table->timestamps();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
+            $table->timestamps();
         });
     }
 
@@ -34,6 +35,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::drop('logs');
     }
 }

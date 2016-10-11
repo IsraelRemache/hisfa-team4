@@ -27,6 +27,6 @@ class CreateQualitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qualities');
+        Schema::drop('qualities');
     }
 }
