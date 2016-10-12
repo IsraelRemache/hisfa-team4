@@ -12,10 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $users = [
-        	['username' => 'Robrecht', 'email' => 'robrecht@hotmail.com', 'password' => 'robrecht', 'img' => ''],
-        	['username' => 'Izzy', 'email' => 'izzy@hotmail.com', 'password' => 'izzy', 'img' => ''],
-        	['username' => 'Miguel', 'email' => 'miguel@hotmail.com', 'password' => 'miguel', 'img' => ''],
-        	['username' => 'Jens', 'email' => 'jens@hotmail.com', 'password' => 'jens', 'img' => ''],
+        	['name' => 'Robrecht', 'email' => 'robrecht@hotmail.com', 'password' => 'robrecht', 'img' => ''],
+        	['name' => 'Izzy', 'email' => 'izzy@hotmail.com', 'password' => 'izzy', 'img' => ''],
+        	['name' => 'Miguel', 'email' => 'miguel@hotmail.com', 'password' => 'miguel', 'img' => ''],
+        	['name' => 'Jens', 'email' => 'jens@hotmail.com', 'password' => 'jens', 'img' => ''],
         ];
 
         DB::table('users')->insert($users);
