@@ -1,91 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    @extends('dashboard')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        @section('dashboardbar')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">Login</a>
                     <a href="{{ url('/register') }}">Register</a>
+                    @endif
                 </div>
-            @endif
+        @stop
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        @section('content')
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
+                        <img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
+                    </div>
+                    <div class="bottombox_dashboard" id="flexbox">
+                        <div class="flex-item1">
+                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
+                            <p class="resourcename">f21MB-n </p>
+                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
+                            <p class="resourcename">f21MB-n </p>
+                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
+                            <p class="resourcename">f21MB-n </p>
+                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
+                            <p class="resourcename">f21MB-n </p>
+                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
+                            <p class="resourcename">f21MB-n </p>
+                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <div class="topbox_dashboard">Blocks in stock <span class="infotekst">(quantity)</span>
+                        <img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks">
+                    </div>
+                    <div class="bottombox_dashboard" id="flexbox">
+                        <div class="flex-item1">
+
+                            <p class="resourcename">P15 </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">60SE </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">P20 </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">100SE </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">P25 </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">150SE </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">P30 </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">200SE </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">P35 </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                        <div class="flex-item1">
+
+                            <p class="resourcename">250SE </p>
+                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------Waste en prime silo's------------------------------ -->
+            <div class="flex-container">
+                <div class="flex-item">
+                    <div class="topbox_dashboard">Waste silo's
+                        <img class="settingsicon" src="images/settings.svg" alt="settings_wastesilo's">
+                    </div>
+                    <div class="bottombox_dashboard" id="flexbox">
+
+                        <div class="flex-item1">
+                            <div class="silos">
+                                <img src="images/silo.svg" alt="octabin_amount">
+                                <p class="resourcetext">grondstof 1</p>
+                            </div>
+                        </div>
+                        <div class="flex-item1">
+                            <div class="silos">
+                                <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
+                                <div class="colorpercent"></div>
+                                <p class="resourcetext">grondstof 2</p>
+                            </div>
+                        </div>
+                        <div class="flex-item1">
+                            <div class="silos">
+                                <img src="images/silo.svg" alt="octabin_amount">
+                                <p class="resourcetext">grondstof 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex-item">
+                    <div class="topbox_dashboard">Prime silo's
+                        <img class="settingsicon" src="images/settings.svg" alt="settings_primesilo's">
+                    </div>
+                    <div class="bottombox_dashboard">
+                        <div id="flexbox">
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 1</p>
+                                </div>
+                            </div>
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 2</p>
+
+                                </div>
+                            </div>
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 3</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="flexbox">
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 4</p>
+                                </div>
+                            </div>
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 5</p>
+                                </div>
+                            </div>
+                            <div class="flex-item1">
+                                <div class="silos">
+                                    <img src="images/silo.svg" alt="octabin_amount">
+                                    <p class="resourcetext">grondstof 6</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        @stop
