@@ -16,11 +16,12 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
-                        <a data-toggle="modal" data-target="#myModal"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
+                        <a data-toggle="modal" data-target="#Modalresources"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
                         </a>
-                        <!-- Pup up voor kwaliteit toe te voegen-->
-                       
-                      <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+                    </div>
+                    <!-- Toevoegen Resources -->
+                    
+                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalresources">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -37,9 +38,8 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-
-
-                    </div>
+                    
+                    
                     <div class="bottombox_dashboard" id="flexbox">
                         <div class="flex-item1">
                             <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
@@ -73,8 +73,28 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Blocks in stock <span class="infotekst">(quantity)</span>
-                        <img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks">
+                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks"></a>
                     </div>
+                    <!-- Toevoegen Quality -->
+                    
+                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalquality">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
                     <div class="bottombox_dashboard" id="flexbox">
                         <div class="flex-item1">
 
@@ -153,8 +173,30 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Waste silo's
-                        <img class="settingsicon" src="images/settings.svg" alt="settings_wastesilo's">
+                        <a data-toggle="modal" data-target="#Modalwaste"><img class="settingsicon" src="images/settings.svg" alt="settings_wastesilo's"></a>
                     </div>
+                    
+                    <!-- Toevoegen Quality -->
+                    
+                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalwaste">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
+                    
                     <div class="bottombox_dashboard" id="flexbox">
 
                         <div class="flex-item1">
@@ -182,8 +224,29 @@
 
                 <div class="flex-item">
                     <div class="topbox_dashboard">Prime silo's
-                        <img class="settingsicon" src="images/settings.svg" alt="settings_primesilo's">
+                        <a data-toggle="modal" data-target="#Modalprime"><img class="settingsicon" src="images/settings.svg" alt="settings_primesilo's"></a>
                     </div>
+                    
+                    <!-- Toevoegen Quality -->
+                    
+                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalprime">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
                     <div class="bottombox_dashboard">
                         <div id="flexbox">
                             <div class="flex-item1">
