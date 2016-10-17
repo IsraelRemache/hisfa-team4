@@ -16,6 +16,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
+
                         <a data-toggle="modal" data-target="#myModal"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
                         </a>
                         <!-- Pup up voor kwaliteit toe te voegen-->
@@ -37,7 +38,6 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-
 
                     </div>
                     <div class="bottombox_dashboard" id="flexbox">
