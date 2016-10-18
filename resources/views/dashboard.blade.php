@@ -33,12 +33,25 @@
                     <div class="profile-info">
                         <img class="settingsiconwhite" src="images/settingswhite.svg" alt="settings_wastesilo's">
                         <img src="images/profile.svg" alt="profile image">
-                        <p class="profilename">Jens</p>
+                        <p class="profilename">{{Auth::user()->name}}</p>
                     </div>
                     <div class="lightdiv"><a href="#"><li>add incoming resources</li></a></div>
                     <div class="darkdiv"><a href="#"><li>add blocks to stock</li></a></div>
                     <div class="lightdiv"><a href="#"><li>update waste silo's</li></a></div>
                     <div class="darkdiv"><a href="#"><li>update prime silo's</li></a></div>
+                    <hr>
+                    <div class="lightdiv"><a href="profile"><li>Profile</li></a></div>
+                    <div class="darkdiv">
+                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <li>Logout</li>
+                        </a>
+
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" ">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
 
                 </ul>
             </div>

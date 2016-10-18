@@ -12,16 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	if (Auth::guest()) {
+        return view ('auth/login');
+	}
+    else {
+    	return view('welcome');
+    }
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
