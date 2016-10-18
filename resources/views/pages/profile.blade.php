@@ -8,7 +8,7 @@
                 <div class="panel-heading">Profile Page</div>
 
                 <div class="panel-body">
-                  <form id="profileform" class="form-horizontal" role="form" method="POST" action="{{ URL::to('welcome') }}" enctype="multipart/form-data">
+                  <form id="profileform" class="form-horizontal" role="form" method="POST" action="{{ url('/home') }}" enctype="multipart/form-data">
                       <div class="form-group">
                           <div class="col-md-6">
                               <label class="col-md-4 control-label"></label>
