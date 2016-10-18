@@ -12,7 +12,6 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    
 
     <!-- Scripts -->
     <script>
@@ -56,7 +55,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <img src="uploads/{{Auth::user()->img}}"  width="20px" height="20px"> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -78,7 +77,7 @@
 
                                         </form>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                         @endif
