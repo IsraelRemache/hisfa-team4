@@ -1,23 +1,11 @@
 
     @extends('dashboard')
 
-
-        @section('dashboardbar')
-
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-        @stop
-
         @section('content')
 
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
-
                         <a data-toggle="modal" data-target="#Modalresources"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
                         </a>
                     </div>
@@ -40,6 +28,7 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
+                    
                     
                     <div class="bottombox_dashboard" id="flexbox">
                         <div class="flex-item1">
