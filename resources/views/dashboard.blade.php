@@ -31,10 +31,10 @@
                 <ul id="menu">
                     <div class="profile-info">
                         <img class="settingsiconwhite" src="images/settingswhite.svg" alt="settings_wastesilo's">
-                        <img src="images/profile.svg" alt="profile image">
-                        <p class="profilename">{{Auth::user()->name}}</p>
+                        <img src="uploads/{{Auth::user()->img}}" alt="profile image" class="profile-picture" >
+                        <p class="profilename" >{{Auth::user()->name}}</p>
                     </div>
-                    <div class="lightdiv"><a href="#"><li>add incoming resources</li></a></div>
+                    <div class="lightdiv"><a data-toggle="modal" data-target="#Modalresources"><li>add incoming resources</li></a></div>
                     <div class="darkdiv"><a href="#"><li>add blocks to stock</li></a></div>
                     <div class="lightdiv"><a href="#"><li>update waste silo's</li></a></div>
                     <div class="darkdiv"><a href="#"><li>update prime silo's</li></a></div>

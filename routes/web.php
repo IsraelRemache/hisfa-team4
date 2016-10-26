@@ -16,7 +16,7 @@ Route::get('/', function () {
         return view ('auth/login');
 	}
     else {
-    	return view('welcome');
+    	return redirect()->action('HomeController@index');
     }
 });
 
