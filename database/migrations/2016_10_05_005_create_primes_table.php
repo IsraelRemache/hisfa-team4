@@ -18,8 +18,8 @@ class CreatePrimesTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->integer('quantity');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('resource_id')->unsigned();
+            $table->foreign('resource_id')->references('id')->on('resources');
         });
     }
 

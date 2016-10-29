@@ -1,4 +1,3 @@
-
     @extends('dashboard')
 
         @section('content')
@@ -8,6 +7,7 @@
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
                         <a data-toggle="modal" data-target="#Modalresources"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
                         </a>
+
                     </div>
                     <!-- Toevoegen Resources -->
                     
@@ -15,11 +15,10 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <input type="text" placeholder="Title" class="input" style="border: none;">
                           </div>
                           <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <input type="text" placeholder="Body" class="input" style="border: none;">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -31,32 +30,13 @@
                     
                     
                     <div class="bottombox_dashboard" id="flexbox">
-                        <div class="flex-item1">
-                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
-                            <p class="resourcename">f21MB-n </p>
-                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
-                            <p class="resourcename">f21MB-n </p>
-                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
-                            <p class="resourcename">f21MB-n </p>
-                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
-                            <p class="resourcename">f21MB-n </p>
-                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-                            <img class="resourceimage" src="images/resource.jpg" alt="Resource image">
-                            <p class="resourcename">f21MB-n </p>
-                            <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-
+                        @foreach ($resources as $resource)
+                            <div class="flex-item1">
+                                <img class="resourceimage" src="images/{{ $resource->img }}" alt="Resource image">
+                                <p class="resourcename"> {{$resource->type}} </p>
+                                <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1"> {{$resource->quantity}} </p></div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -71,11 +51,10 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <input type="text" placeholder="Title" class="input" style="border: none;">
                           </div>
                           <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <input type="text" placeholder="Body" class="input" style="border: none;">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -84,79 +63,40 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-                    
-                    <div class="bottombox_dashboard" id="flexbox">
-                        <div class="flex-item1">
 
-                            <p class="resourcename">P15 </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">60SE </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">P20 </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">100SE </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">P25 </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">150SE </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">P30 </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">200SE </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">P35 </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                        <div class="flex-item1">
-
-                            <p class="resourcename">250SE </p>
-                            <div class="octa-image"><img src="images/red-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/green-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                            <div class="octa-image"><img src="images/yellow-circle.svg" alt="octabin_amount"> <p class="octanumber1">5</p></div>
-                        </div>
-                    </div>
+                    <div class="flex-container1">
+                      @foreach ($results as $result)
+                        <div class="bottombox_qualities" id="flexbox">  
+                          <div class="flex-name">
+                            <p class="resourcename"> {{ $result }} </p>
+                          </div>
+                          @foreach ($qualities as $quality)
+                            @if($quality->name == $result)
+                              <div class="flex-circle{{$quality->quality_id}}">
+                                @if($quality->length == 4)
+                                  <div class="octa-image">
+                                    <img src="images/red-circle.svg" alt="octabin_amount"> 
+                                    <p class="octanumber1">{{$quality->quantity}}</p>
+                                  </div>
+                                @endif
+                                @if($quality->length == 6)
+                                  <div class="octa-image">
+                                    <img src="images/green-circle.svg" alt="octabin_amount"> 
+                                    <p class="octanumber1">{{$quality->quantity}}</p>
+                                  </div>
+                                @endif
+                                @if($quality->length == 8)
+                                  <div class="octa-image">
+                                    <img src="images/yellow-circle.svg" alt="octabin_amount"> 
+                                    <p class="octanumber1">{{$quality->quantity}}</p>
+                                  </div>
+                                @endif
+                              </div>
+                              @endif
+                            @endforeach
+                          </div>
+                        @endforeach
+                    </div>      
                 </div>
             </div>
             <!-- -------------------------Waste en prime silo's------------------------------ -->
@@ -172,11 +112,10 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <input type="text" placeholder="Title" class="input" style="border: none;">
                           </div>
                           <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <input type="text" placeholder="Body" class="input" style="border: none;">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -188,28 +127,16 @@
                     
                     
                     <div class="bottombox_dashboard" id="flexbox">
-
+                        @foreach ($wastes as $waste)
                         <div class="flex-item1">
                             <div class="silos">
                                 <img src="images/silo.svg" alt="octabin_amount">
-                                <p class="resourcetext">grondstof 1</p>
+                                <p class="resourcetext">{{$waste->name}}</p>
+                                <p class="resourcetext">{{$waste->type}}</p>
                             </div>
                         </div>
-                        <div class="flex-item1">
-                            <div class="silos">
-                                <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
-                                <div class="colorpercent"></div>
-                                <p class="resourcetext">grondstof 2</p>
-                            </div>
-                        </div>
-                        <div class="flex-item1">
-                            <div class="silos">
-                                <img src="images/silo.svg" alt="octabin_amount">
-                                <p class="resourcetext">grondstof 3</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-
                 </div>
 
                 <div class="flex-item">
@@ -223,11 +150,10 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <input type="text" placeholder="Title" class="input" style="border: none;">
                           </div>
                           <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <input type="text" placeholder="Body" class="input" style="border: none;">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -238,50 +164,22 @@
                     </div><!-- /.modal -->
                     
                     <div class="bottombox_dashboard">
+                    @foreach ($primes->chunk(3) as $chunk)
                         <div id="flexbox">
+                            @foreach ($chunk as $prime)
                             <div class="flex-item1">
                                 <div class="silos">
                                     <img src="images/silo.svg" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 1</p>
+                                    <p class="resourcetext">{{$prime->name}}</p>
+                                    <p class="resourcetext">{{$prime->type}}</p>
                                 </div>
                             </div>
-                            <div class="flex-item1">
-                                <div class="silos">
-                                    <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 2</p>
+                            @endforeach
+                        </div>
+                    @endforeach
+                    </div>
 
-                                </div>
-                            </div>
-                            <div class="flex-item1">
-                                <div class="silos">
-                                    <img src="images/silo.svg" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 3</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="flexbox">
-                            <div class="flex-item1">
-                                <div class="silos">
-                                    <img src="images/silo.svg" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 4</p>
-                                </div>
-                            </div>
-                            <div class="flex-item1">
-                                <div class="silos">
-                                    <img src="images/silo.svg" class="silo-image" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 5</p>
-                                </div>
-                            </div>
-                            <div class="flex-item1">
-                                <div class="silos">
-                                    <img src="images/silo.svg" alt="octabin_amount">
-                                    <p class="resourcetext">grondstof 6</p>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        </div>
+                </div>
                     </div>
                 </div>
             </div>

@@ -14,5 +14,10 @@ class DatabaseSeeder extends Seeder
         $this->call(QualitiesTableSeeder::class);
         $this->call(LengthsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(ResourcesTableSeeder::class);
+        $this->call(PrimesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(WastesTableSeeder::class);
+        $this->call(StocksTableSeeder::class);
     }
 }
