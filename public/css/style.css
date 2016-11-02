@@ -264,14 +264,14 @@ html, body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height:auto;
-    
+
 }
 
 .bottombox_qualities{
     flex-direction: column;
     border-right: 1px solid #CECECE;
     flex-grow: 1;
-    
+
 }
 
 .settingsicon{
@@ -329,6 +329,7 @@ html, body {
 .resourceimage{
     display:block;
     width:100px;
+    height:100px;
     margin-left:auto;
     margin-right:auto;
     margin-top:20px;
@@ -366,6 +367,18 @@ html, body {
 
 .input:focus {
     outline: none;
+}
+.dropdown-content{
+    display: none;
+}
+
+.dropdown-content > ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
 }
 
 

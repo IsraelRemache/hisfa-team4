@@ -31,3 +31,7 @@ Route::post('/home', 'HomeController@index');
 
 Route::get('/profile', 'UsersController@index');
 Route::post('/profile','UsersController@update');
+
+Route::get('/products/{id}', 'ResouceController@index');
+Route::get('/products/{id}' ,'ResourceController@show');
+Route::post('/products/{id}','ResourceController@update');

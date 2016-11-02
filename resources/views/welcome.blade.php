@@ -10,7 +10,7 @@
 
                     </div>
                     <!-- Toevoegen Resources -->
-                    
+
                     <div class="modal fade" tabindex="-1" role="dialog" id="Modalresources">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -27,7 +27,7 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-                    
+
                     
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($resources as $resource)

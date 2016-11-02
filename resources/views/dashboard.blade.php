@@ -19,6 +19,7 @@
 <body>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
         <nav role="navigation">
             <div id="menuToggle">
 
@@ -40,7 +41,19 @@
                     <div class="darkdiv"><a href="#"><li>update prime silo's</li></a></div>
                     <hr>
                     <div class="lightdiv"><a href="profile"><li>Profile</li></a></div>
-                    <div class="darkdiv">
+                    <div class="darkdiv dropdown">
+                        <a href="#"><li>Resources</li></a>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        @foreach ($resources as $resource)
+                                        <li><a href="products/{{$resource->id}}">{{$resource->type}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+
+                                </div>
+                    </div>
+                    <div class="lightdiv">
                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -58,6 +71,7 @@
         <div class="headertext">Dashboard</div>
         @yield('dashboardbar')
     </div>
+
     <div>
         @yield('content')
     </div>
