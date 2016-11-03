@@ -130,7 +130,14 @@
                         @foreach ($wastes as $waste)
                         <div class="flex-item1">
                             <div class="silos">
-                                <img src="images/silo.svg" alt="octabin_amount">
+                                <p class="resourcetext">{{$waste->quantity}}%</p>
+                                @if(($waste->quantity) <= 40)
+                                    <img src="images/silo-green.svg" alt="octabin_amount">
+                                @elseif(($waste->quantity) > 40 && $waste->quantity < 80)
+                                    <img src="images/silo-orange.svg" alt="octabin_amount">
+                                @else
+                                    <img src="images/silo-red.svg" alt="octabin_amount">
+                                @endif
                                 <p class="resourcetext">{{$waste->name}}</p>
                                 <p class="resourcetext">{{$waste->type}}</p>
                             </div>
@@ -169,9 +176,17 @@
                             @foreach ($chunk as $prime)
                             <div class="flex-item1">
                                 <div class="silos">
-                                    <img src="images/silo.svg" alt="octabin_amount">
+                                    <p class="resourcetext">{{(($prime->quantity))}}%</p>
+                                    @if(($prime->quantity) <= 40)
+                                    <img src="images/silo-green.svg" alt="octabin_amount">
+                                   @elseif(($prime->quantity) > 40 && $prime->quantity < 80)
+                                    <img src="images/silo-orange.svg" alt="octabin_amount">
+                                    @else
+                                    <img src="images/silo-red.svg" alt="octabin_amount">
+                                    @endif
                                     <p class="resourcetext">{{$prime->name}}</p>
                                     <p class="resourcetext">{{$prime->type}}</p>
+
                                 </div>
                             </div>
                             @endforeach
