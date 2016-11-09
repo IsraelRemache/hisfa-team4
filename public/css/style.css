@@ -1,3 +1,4 @@
+
 html, body {
     background-color: #E2E2E2;
     color: #636b6f;
@@ -161,13 +162,14 @@ html, body {
     padding-top: 30px;
     margin-top:16px;
     background: #1B1E25;
-    height:110rem;
+    height:120rem;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-   
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
 }
 
 .profile-info{
@@ -181,6 +183,10 @@ html, body {
     font-size:1.2em;
     font-weight:bold;
     padding-bottom:30px;
+}
+
+.profile-picture {
+    width: 150px;
 }
 
 #menu li
@@ -227,6 +233,15 @@ html, body {
     flex-basis:5px;
 }
 
+.flex-container1 {
+    display: flex;
+    justify-content: space-around;
+    background-color: #F7F7F7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
 .infotekst{
     color:#A5A5A5;
     font-size:0.9em;
@@ -249,12 +264,20 @@ html, body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height:auto;
+
+}
+
+.bottombox_qualities{
+    flex-direction: column;
+    border-right: 1px solid #CECECE;
+    flex-grow: 1;
+
 }
 
 .settingsicon{
-    width:20px;
-    float:right;
-    margin-right:10px;
+     width:20px;
+     float:right;
+     margin-right:10px;
  }
 
 .settingsiconwhite{
@@ -306,6 +329,7 @@ html, body {
 .resourceimage{
     display:block;
     width:100px;
+    height:100px;
     margin-left:auto;
     margin-right:auto;
     margin-top:20px;
@@ -341,7 +365,67 @@ html, body {
     font-weight:bold;
 }
 
-#settingsicondown{
-    margin-top:-21px;
+.input:focus {
+    outline: none;
+}
+.dropdown-content{
+    display: none;
 }
 
+.dropdown-content > ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.percent {
+    float: inherit;
+    margin-top: 40px;
+    color: white;
+}
+
+.navbar{
+    background-color:#1B1E25;
+
+}
+
+.navbar-default .navbar-brand{
+    color:#C9C9C9;
+    font-weight:400;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text{
+    top:7px;
+    color:#C9C9C9;
+}
+
+.btn-primary{
+    background-color:#1B1E25;
+}
+
+.btn-link{
+    padding-top:8px;
+    color:#1B1E25;
+}
+
+.btn-link:hover{
+    color:#38C1AF;
+}
+
+.btn-primary:hover{
+    background-color:#38C1AF;
+}
+
+.navbar-default:hover .navbar-nav>li>a:hover, .navbar-default:hover .navbar-text:hover{
+    color:#38C1AF;
+}
+
+.navbar-default:hover .navbar-brand:hover{
+    color:#38C1AF;
+}
+.navbar-brand{
+    line-height:32px;
+}
