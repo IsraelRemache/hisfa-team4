@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<?php $user = \Auth::user();?>
 @section('content')
  <div class="container">
     <div class="row">
@@ -8,7 +8,7 @@
                 <div class="panel-heading">Profile Page</div>
 
                 <div class="panel-body">
-                  <form id="profileform" class="form-horizontal" role="form" method="POST" action="{{ url('/home') }}" enctype="multipart/form-data">
+                  <form id="profileform" class="form-horizontal" role="form" method="POST" action="{{ url('/profile') }}" enctype="multipart/form-data">
                       <div class="form-group">
                           <div class="col-md-6">
                               <label class="col-md-4 control-label"></label>
@@ -37,6 +37,11 @@
                           <label for="email" class="col-md-4 control-label">Email</label>
                           <div class="col-md-6">
                               <input id="email" type="email" class="form-control" name="email" value="{{Auth::user()->email}}" required autofocus>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-md-8 col-md-offset-4">
+                              <input type="checkbox" name="notifications"<?php if($user->notifications) {echo 'checked';}?>><label> Wilt u de notificaties in mail ontvangen?</label>
                           </div>
                       </div>
                       <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">

@@ -15,9 +15,30 @@
                     </div>  
                     </div>
                     <!-- Toevoegen Resources -->
+<<<<<<< HEAD
                     
                      
                     
+=======
+
+                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalresources">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <input type="text" placeholder="Title" class="input" style="border: none;">
+                          </div>
+                          <div class="modal-body">
+                            <input type="text" placeholder="Body" class="input" style="border: none;">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+>>>>>>> origin/devel
                     
                     <div class="bottombox_dashboard" id="flexbox">
                         <div class="flex-item1">
@@ -162,6 +183,7 @@
 
                         <div class="flex-item1">
                             <div class="silos">
+<<<<<<< HEAD
                                 <img src="images/silo.svg" alt="octabin_amount">
                                 <p class="resourcetext">grondstof 1</p>
                             </div>
@@ -177,6 +199,18 @@
                             <div class="silos">
                                 <img src="images/silo.svg" alt="octabin_amount">
                                 <p class="resourcetext">grondstof 3</p>
+=======
+                                <p class="resourcetext">{{$waste->quantity}}%</p>
+                                @if(($waste->quantity) <= 40)
+                                    <img src="images/silo-green.svg" alt="octabin_amount">
+                                @elseif(($waste->quantity) > 40 && $waste->quantity < 80)
+                                    <img src="images/silo-orange.svg" alt="octabin_amount">
+                                @else
+                                    <img src="images/silo-red.svg" alt="octabin_amount">
+                                @endif
+                                <p class="resourcetext">{{$waste->name}}</p>
+                                <p class="resourcetext">{{$waste->type}}</p>
+>>>>>>> origin/devel
                             </div>
                         </div>
                     </div>
@@ -203,6 +237,7 @@
                         <div id="flexbox">
                             <div class="flex-item1">
                                 <div class="silos">
+<<<<<<< HEAD
                                     <img src="images/silo.svg" alt="octabin_amount">
                                     <p class="resourcetext">grondstof 1</p>
                                 </div>
@@ -238,6 +273,19 @@
                                 <div class="silos">
                                     <img src="images/silo.svg" alt="octabin_amount">
                                     <p class="resourcetext">grondstof 6</p>
+=======
+                                    <p class="resourcetext">{{(($prime->quantity))}}%</p>
+                                    @if(($prime->quantity) <= 40)
+                                    <img src="images/silo-green.svg" alt="octabin_amount">
+                                   @elseif(($prime->quantity) > 40 && $prime->quantity < 80)
+                                    <img src="images/silo-orange.svg" alt="octabin_amount">
+                                    @else
+                                    <img src="images/silo-red.svg" alt="octabin_amount">
+                                    @endif
+                                    <p class="resourcetext">{{$prime->name}}</p>
+                                    <p class="resourcetext">{{$prime->type}}</p>
+
+>>>>>>> origin/devel
                                 </div>
                             </div>
                         </div>
