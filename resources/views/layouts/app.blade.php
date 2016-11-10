@@ -8,11 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Hisfa</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -37,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Hisfa
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 

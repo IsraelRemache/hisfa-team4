@@ -1,8 +1,8 @@
 @extends('layouts.app')
 <?php
 
-    $user = \Auth::user();
-    $resources = \App\Resource::all();
+$user = \Auth::user();
+$primes = \App\Prime::all();
 
 ?>
 @section('content')
@@ -10,26 +10,25 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{$resource->type}}</div>
+                    <div class="panel-heading">{{$prime->name}}</div>
 
                     <div class="panel-body">
-                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/resources/resource_$resource->id")}}' enctype="multipart/form-data">
+                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/primes/prime_$prime->id")}}' enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label class="col-md-4 control-label"></label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="ppicture" class="col-md-4 control-label">Product Picture</label>
+                                <label for="name" class="col-md-4 control-label">Silo Name</label>
                                 <div class="col-md-6">
-                                    <img src="../images\{{$resource->img}}" width="80px" height="80px" style="margin-bottom: 10px">
-                                    <input name="resource" type="file">
+                                    <label class="form-control">{{$prime->name}}</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Product Name</label>
+                                <label for="name" class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-6">
-                                    <label class="form-control">{{$resource->type}}</label>
+                                    <label class="form-control">{{$prime->quantity}}</label>
                                 </div>
                             </div>
 
@@ -37,8 +36,9 @@
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Change
-                                    </button> <button type="submit" class="btn btn-primary" name="delete">
-                                        Delete {{$resource->type}}
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" name="delete">
+                                        Delete {{$prime->name}}
                                     </button>
                                 </div>
                             </div>

@@ -17,7 +17,8 @@ class CreateResourcesTable extends Migration
         {
             $table->increments('id');
             $table->string('type', 50);
-            $table->string('img', 255);
+            $table->string('img', 255)->default('recourse.jpg');
+            $table->timestamps();
         });
     }
 

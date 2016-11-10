@@ -13,8 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="/js/hisfa.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
-
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -35,29 +34,16 @@
                         <img src="uploads/{{Auth::user()->img}}" alt="profile image" class="profile-picture" >
                         <p class="profilename" >{{Auth::user()->name}}</p>
                     </div>
-                    <div class="lightdiv"><a data-toggle="modal" data-target="#Modalresources"><li>add incoming resources</li></a></div>
-                    <div class="darkdiv"><a href="#"><li>add blocks to stock</li></a></div>
-                    <div class="lightdiv"><a href="#"><li>update waste silo's</li></a></div>
-                    <div class="darkdiv"><a href="#"><li>update prime silo's</li></a></div>
-                    <hr>
-                    <div class="lightdiv"><a href="profile"><li>Profile</li></a></div>
-                    <div class="darkdiv dropdown">
-                        <a href="#"><li>Resources</li></a>
-                                <div class="dropdown-content">
-                                    <ul>
-                                        @foreach ($resources as $resource)
-                                        <li><a href="products/{{$resource->id}}">{{$resource->type}}</a></li>
-                                        @endforeach
-
-                                    </ul>
-
-                                </div>
-                    </div>
-                    <div class="lightdiv">
+                    <div class="lightdiv"><a data-toggle="modal" data-target="#Modalresources"><li>Add incoming resources</li></a></div>
+                    <div class="darkdiv"><a href="#"><li>Add blocks to stock</li></a></div>
+                    <div class="lightdiv"><a href="#"><li>Update waste silo's</li></a></div>
+                    <div class="darkdiv"><a href="#"><li>Update prime silo's</li></a></div>
+                    <div class="lightdiv"><a href="profile"><li><i class="material-icons">&#xE8A6;</i> Profile</li></a></div>
+                    <div class="darkdiv">
                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            <li>Logout</li>
+                                            <li><i class="material-icons">&#xE879;</i> Logout</li>
                         </a>
 
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" ">

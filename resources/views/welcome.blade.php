@@ -31,10 +31,12 @@
                     
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($resources as $resource)
+                            <a href="resources/resource_{{$resource->id}}">
                             <div class="flex-item1">
                                 <img class="resourceimage" src="images/{{ $resource->img }}" alt="Resource image">
                                 <p class="resourcename"> {{$resource->type}} </p>
                                 <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1"> {{$resource->quantity}} </p></div>
+                            </a>
                             </div>
                         @endforeach
                     </div>
@@ -129,6 +131,7 @@
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($wastes as $waste)
                         <div class="flex-item1">
+                            <a href="wastes/waste_{{$waste->id}}">
                             <div class="silos">
                                 <p class="resourcetext">{{$waste->quantity}}%</p>
                                 @if(($waste->quantity) <= 40)
@@ -141,6 +144,7 @@
                                 <p class="resourcetext">{{$waste->name}}</p>
                                 <p class="resourcetext">{{$waste->type}}</p>
                             </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
@@ -175,6 +179,7 @@
                         <div id="flexbox">
                             @foreach ($chunk as $prime)
                             <div class="flex-item1">
+                                <a href="/primes/prime_{{$prime->id}}">
                                 <div class="silos">
                                     <p class="resourcetext">{{(($prime->quantity))}}%</p>
                                     @if(($prime->quantity) <= 40)
@@ -188,6 +193,7 @@
                                     <p class="resourcetext">{{$prime->type}}</p>
 
                                 </div>
+                                </a>
                             </div>
                             @endforeach
                         </div>
