@@ -74,6 +74,8 @@ class ResourceController extends Controller
         }
         return redirect('home');
     }
+    
+    
 
 
     /**

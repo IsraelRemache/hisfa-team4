@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Waste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class WasteController extends Controller
 {
@@ -29,6 +32,8 @@ class WasteController extends Controller
     {
         //
     }
+    
+    
 
     /**
      * Store a newly created resource in storage.
@@ -56,6 +61,27 @@ class WasteController extends Controller
         return view('products/waste',$data);
     }
 
+    public function addwaste(Request $request)
+    {
+        $waste = new waste;
+
+        
+        $waste->name = $request->input('wastesiloname');
+        $waste->resource_id = Input::get('wasteresource');
+        $waste->Save();
+        
+        return redirect('home');
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $waste = \App\Waste::findOrFail($id);
+        $waste->name = $request->input('cwastesiloname');
+        $waste->quantity = $request->input('cwastesiloquantity');
+        $waste->Save();
+        
+        return redirect('home');
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -74,10 +100,6 @@ class WasteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-      
-    }
 
     /**
      * Remove the specified resource from storage.

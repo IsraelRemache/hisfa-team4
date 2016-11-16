@@ -1,5 +1,5 @@
     @extends('dashboard')
-
+        
         @section('content')
 
             <div class="flex-container">
@@ -117,24 +117,36 @@
                             <p>Add silo's</p>
                           </div>
                           <div class="modal-body">
-                            <input type="text" placeholder="Resource" class="input" style="border: none;">
-                            <input type="text" placeholder="Silo name" class="input" style="border: none;">
-                            <input type="text" placeholder="Quantity" class="input" style="border: none;">
+                            
+                            <form method="POST">
+                              Resource<select name="wasteresource">
+                              @foreach ($resources as $resource)
+                              <option value="{{$resource->id}}">{{$resource->type}}</option>
+                              @endforeach
+                              </select>
+                              
+                              <input type="text" name="wastesiloname" placeholder="Silo name" class="input" style="border: none;">
+                              <input type="hidden" value="{{csrf_token()}}" name="_token">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add silo</button>
+                           </form>
+                            
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add silo</button>
-                          </div>
+                         
+                          
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
                     
                     
-                    <div class="bottombox_dashboard" id="flexbox">
-                        @foreach ($wastes as $waste)
+                    <div class="bottombox_dashboard">
+                      @foreach ($wastes->chunk(3) as $chunk)
+                       <div id="flexbox">
+                        @foreach ($chunk as $waste)
                         <div class="flex-item1">
                             <a href="wastes/waste_{{$waste->id}}">
                             <div class="silos">
+                               
                                 <p class="resourcetext">{{$waste->quantity}}%</p>
                                 @if(($waste->quantity) <= 40)
                                     <img src="images/silo-green.svg" alt="octabin_amount">
@@ -149,6 +161,8 @@
                             </a>
                         </div>
                         @endforeach
+                    </div>
+                    @endforeach
                     </div>
                 </div>
 
