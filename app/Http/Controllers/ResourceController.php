@@ -105,9 +105,10 @@ class ResourceController extends Controller
             $resource->img = "resource_$id.jpg";
             $resource->Save();
         }
-        else{
-            
-            return view('home');
+        elseif ($request->input('type') != null){
+            $resource = \App\Resource::findOrFail($id);
+            $resource->type = $request->input('type');
+            $resource->save();
         }
         return redirect('home');
     }

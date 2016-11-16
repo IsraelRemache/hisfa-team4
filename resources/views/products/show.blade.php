@@ -37,7 +37,8 @@
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Change
-                                    </button> <button type="submit" class="btn btn-primary" name="delete">
+                                    </button> 
+                                    <button type="submit" class="btn btn-primary" name="delete">
                                         Delete {{$resource->type}}
                                     </button>
                                 </div>
