@@ -15,7 +15,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="name" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
+                                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
