@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Prime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class PrimeController extends Controller
 {
@@ -18,6 +20,18 @@ class PrimeController extends Controller
         $primes = \App\Prime::all($id);
         $data['primes'] = $primes;
 
+    }
+    
+    public function addprime(Request $request)
+    {
+        $prime = new prime;
+
+        
+        $prime->name = $request->input('primesiloname');
+        $prime->resource_id = Input::get('primeresource');
+        $prime->Save();
+        
+        return redirect('home');
     }
 
     /**

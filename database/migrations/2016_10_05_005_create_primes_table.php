@@ -17,9 +17,10 @@ class CreatePrimesTable extends Migration
         {
             $table->increments('id');
             $table->string('name', 50);
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resources');
+            $table->timestamps();
         });
     }
 

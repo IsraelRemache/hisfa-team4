@@ -114,7 +114,7 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <p>Add silo's</p>
+                            <p>Add waste silo's</p>
                           </div>
                           <div class="modal-body">
                             
@@ -177,15 +177,26 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
+                            <p>Add prime silo's</p>
                           </div>
                           <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
+                            
+                            <form method="POST">
+                              Resource<select name="primeresource">
+                              @foreach ($resources as $resource)
+                              <option value="{{$resource->id}}">{{$resource->type}}</option>
+                              @endforeach
+                              </select>
+                              
+                              <input type="text" name="primesiloname" placeholder="Silo name" class="input" style="border: none;">
+                              <input type="hidden" value="{{csrf_token()}}" name="_token">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add silo</button>
+                           </form>
+                            
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
+                         
+                          
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
