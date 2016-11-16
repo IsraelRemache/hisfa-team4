@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ResourceController extends Controller
 {
@@ -76,8 +77,6 @@ class ResourceController extends Controller
     }
     
     
-
-
     /**
      * Show the form for editing the specified resource.
      *
