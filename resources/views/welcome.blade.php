@@ -5,7 +5,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
-                        <a data-toggle="modal" data-target="#Modalresources"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
+                        <a href="resources/add"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
                         </a>
 
                     </div>

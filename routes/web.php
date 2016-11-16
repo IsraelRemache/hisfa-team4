@@ -35,6 +35,8 @@ Route::post('/profile','UsersController@update');
 Route::get('/resources/resource_{id}', 'ResouceController@index');
 Route::get('/resources/resource_{id}' ,'ResourceController@show');
 Route::post('/resources/resource_{id}','ResourceController@update');
+Route::get('/resources/add', 'ResourceController@new_resource');
+Route::post('/resources/add', 'ResourceController@add');
 
 Route::get('/primes/prime_{id}', 'PrimeController@index');
 Route::get('/primes/prime_{id}' ,'PrimeController@show');

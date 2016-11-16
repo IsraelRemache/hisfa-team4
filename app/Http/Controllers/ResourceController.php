@@ -54,8 +54,27 @@ class ResourceController extends Controller
 
         $resource = \App\Resource::findOrFail($id);
         $data['resource'] = $resource;
-        return view('products/show',$data);
+        return view('products/show', $data);
     }
+
+    public function new_resource()
+    {
+        //
+        return view('products/add');
+    }
+
+    public function add(Request $request)
+    {
+        if($_FILES['resource']['size'] != 0) {
+            $resource = new resource;
+            $request->resource->move(public_path('images'),"resource_new.jpg");
+            $resource->type = $request->input('name');
+            $resource->img = 'resource_new.jpg';
+            $resource->Save();
+        }
+        return redirect('home');
+    }
+
 
     /**
      * Show the form for editing the specified resource.
