@@ -22,13 +22,13 @@ $wastes = \App\Waste::all();
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Silo Name</label>
                                 <div class="col-md-6">
-                                    <label class="form-control">{{$waste->name}}</label>
+                                    <input type="text" name="cwastesiloname" placeholder="{{$waste->name}}" class="input" style="border: none;">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-6">
-                                    <label class="form-control">{{$waste->quantity}}</label>
+                                    <input type="text" name="cwastesiloquantity" placeholder="{{$waste->quantity}}%" class="input" style="border: none;">
                                 </div>
                             </div>
 

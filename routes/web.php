@@ -28,6 +28,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@index');
+Route::post('/home', 'WasteController@addwaste');
 
 Route::get('/profile', 'UsersController@index');
 Route::post('/profile','UsersController@update');
@@ -45,4 +46,5 @@ Route::post('/primes/prime_{id}' ,'PrimeController@destroy');
 
 Route::get('/wastes/waste_{id}', 'WasteController@index');
 Route::get('/wastes/waste_{id}' ,'WasteController@show');
+Route::post('/wastes/waste_{id}' ,'WasteController@update');
 Route::post('/wastes/waste_{id}' ,'WasteController@destroy');

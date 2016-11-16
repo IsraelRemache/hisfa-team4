@@ -8,6 +8,6 @@ class Waste extends Model
 {
     //
     protected $waste = [
-        'type','name','quantity'
+        'name','quantity','resource_id'
     ];
 }
