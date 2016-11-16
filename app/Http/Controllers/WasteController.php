@@ -75,6 +75,7 @@ class WasteController extends Controller
     
     public function update(Request $request, $id)
     {
+        $waste = \App\Waste::findOrFail($id);
         $waste->name = $request->input('cwastesiloname');
         $waste->quantity = $request->input('cwastesiloquantity');
         $waste->Save();
