@@ -114,14 +114,16 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
+                            <p>Add silo's</p>
                           </div>
                           <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
+                            <input type="text" placeholder="Resource" class="input" style="border: none;">
+                            <input type="text" placeholder="Silo name" class="input" style="border: none;">
+                            <input type="text" placeholder="Quantity" class="input" style="border: none;">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary">Add silo</button>
                           </div>
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
