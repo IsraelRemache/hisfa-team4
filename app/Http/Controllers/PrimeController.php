@@ -90,7 +90,16 @@ class PrimeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        if(isset($_POST['changeprime'])) {
+
+            if($request->input('cprimesiloname') != null || $request->input('cprimesiloquantity' !=null )) {
+                $waste = \App\Prime::findOrFail($id);
+                $waste->name = $request->input('cprimesiloname');
+                $waste->quantity = $request->input('cprimesiloquantity');
+                $waste->Save();
+            }
+        }
+        return redirect('home');
     }
 
     /**

@@ -44,9 +44,9 @@ Route::post('/resources/add', 'ResourceController@add');
 Route::get('/primes/prime_{id}', 'PrimeController@index');
 Route::get('/primes/prime_{id}' ,'PrimeController@show');
 Route::post('/primes/prime_{id}' ,'PrimeController@destroy');
-
+Route::post('/primes/prime_{id}' ,'PrimeController@update');
 
 Route::get('/wastes/waste_{id}', 'WasteController@index');
 Route::get('/wastes/waste_{id}' ,'WasteController@show');
-Route::post('/wastes/waste_{id}' ,'WasteController@update');
 Route::post('/wastes/waste_{id}' ,'WasteController@destroy');
+Route::post('/wastes/waste_{id}' ,'WasteController@update');

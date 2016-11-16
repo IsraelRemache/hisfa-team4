@@ -75,11 +75,17 @@ class WasteController extends Controller
     
     public function update(Request $request, $id)
     {
-        $waste = Waste::find($id);
-        $waste->name = $request->input('cwastesiloname');
-        $waste->quantity = $request->input('cwastesiloquantity');
-        $waste->Save();
-        
+
+        if(isset($_POST['changewaste'])) {
+
+            if($request->input('cwastesiloname') != null || $request->input('cwastesiloquantity') !=null) {
+                $waste = \App\Waste::findOrFail($id);
+                $waste->name = $request->input('cwastesiloname');
+                $waste->quantity = $request->input('cwastesiloquantity');
+                $waste->Save();
+            }
+        }
+
         return redirect('home');
     }
     /**
@@ -113,6 +119,7 @@ class WasteController extends Controller
         if(isset($_POST['delete'])) {
             $waste = \App\Waste::findOrFail($id);
             $waste->delete();
+
         }
         return redirect('home');
     }

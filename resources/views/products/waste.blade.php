@@ -22,19 +22,19 @@ $wastes = \App\Waste::all();
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Silo Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="cwastesiloname" placeholder="{{$waste->name}}" class="input" style="border: none;">
+                                    <input type="text" name="cwastesiloname" value="{{$waste->name}}" class="form-group form-control" style="border: none;">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="cwastesiloquantity" placeholder="{{$waste->quantity}}%" class="input" style="border: none;">
+                                    <input type="text" name="cwastesiloquantity" value="{{$waste->quantity}}" class="form-control form-group" style="border: none;">
                                 </div>
                             </div>
 
                             <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" name="changewaste" class="btn btn-primary">
                                         Change
                                     </button>
                                     <button type="submit" class="btn btn-primary" name="delete">
