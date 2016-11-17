@@ -13,7 +13,7 @@ $primes = \App\Prime::all();
                     <div class="panel-heading">{{$prime->name}}</div>
 
                     <div class="panel-body">
-                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/primes/prime_$prime->id")}}' enctype="multipart/form-data">
+                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/primes/update")}}' enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label class="col-md-4 control-label"></label>
@@ -31,17 +31,22 @@ $primes = \App\Prime::all();
                                     <input type="text" name="cprimesiloquantity" value="{{$prime->quantity}}" class="input form-control" style="border: none;">
                                 </div>
                             </div>
-
+                            <input type="hidden" value="{{$prime->id}}" name="id">
                             <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" name="changeprime" class="btn btn-primary">
                                         Change
                                     </button>
-                                    <button type="submit" class="btn btn-primary" name="delete">
-                                        Delete {{$prime->name}}
-                                    </button>
+
                                 </div>
                             </div>
+                        </form>
+                        <form action="{{ url("/primes/destroy")}}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" value="{{csrf_token()}}" name="_token">
+                            <input type="hidden" value="{{$prime->id}}" name="id">
+                            <button type="submit" class="btn btn-primary" name="delete">
+                                Delete {{$prime->name}}
+                            </button>
                         </form>
                     </div>
                 </div>

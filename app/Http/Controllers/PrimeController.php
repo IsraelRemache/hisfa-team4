@@ -88,14 +88,16 @@ class PrimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        if(isset($_POST['changeprime'])) {
+        if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 100) {
 
-            if($request->input('cprimesiloname') != null || $request->input('cprimesiloquantity' !=null )) {
+            if($_POST['cprimesiloname'] != null || $_POST['cprimesiloquantity'] !=null ) {
+                
+                $id = $_POST['id'];
                 $waste = \App\Prime::findOrFail($id);
-                $waste->name = $request->input('cprimesiloname');
-                $waste->quantity = $request->input('cprimesiloquantity');
+                $waste->name = $_POST['cprimesiloname'];
+                $waste->quantity = $_POST['cprimesiloquantity'];
                 $waste->Save();
             }
         }
@@ -108,10 +110,11 @@ class PrimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
         if(isset($_POST['delete'])) {
+            $id = $_POST['id'];
             $prime = \App\Prime::findOrFail($id);
             $prime->delete();
         }

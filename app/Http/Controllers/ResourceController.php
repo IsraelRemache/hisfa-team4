@@ -100,10 +100,10 @@ class ResourceController extends Controller
         //
 
         if($_FILES['resource']['size'] != 0){
-
-            $request->resource->move(public_path('images'),"resource_$id.jpg");
+            
             $resource = \App\Resource::findOrFail($id);
-            $resource->img = "resource_$id.jpg";
+            $request->resource->move(public_path('images'),"resource_$id._$resource->updated_at.jpg");
+            $resource->img = "resource_$id._$resource->updated_at.jpg";
             $resource->Save();
         }
         elseif ($request->input('type') != null){
