@@ -28,8 +28,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@index');
-Route::post('/home', 'WasteController@addwaste');
-Route::post('/home', 'PrimeController@addprime');
+Route::post('/addwaste', 'WasteController@addwaste');
+Route::post('/addprime', 'PrimeController@addprime');
 
 Route::get('/profile', 'UsersController@index');
 Route::post('/profile','UsersController@update');

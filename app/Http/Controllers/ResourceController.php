@@ -7,6 +7,7 @@ use App\Resource;
 use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use File;
 
 class ResourceController extends Controller
 {
@@ -118,14 +119,27 @@ class ResourceController extends Controller
     {
         //
         if($_FILES['resource']['size'] != 0){
-            $id = $_POST['id'];  
+
             $resource = \App\Resource::findOrFail($id);
-            $request->resource->move(public_path('images'),"resource_$id._$resource->updated_at.jpg");
-            $resource->img = "resource_$id._$resource->updated_at.jpg";
-            $resource->Save();
+
+            if($resource->img == "resource.jpg"){
+
+                $request->resource->move(public_path('images'), "resource_" . $id . "_" .time() . ".jpg");
+                $resource->img = "resource_" . $id . "_" . time() . ".jpg";
+                $resource->Save();
+
+            }
+            else{
+                
+                File::delete("images/" . $resource->img);
+                $request->resource->move(public_path('images'), "resource_" . $id . "_" .time() . ".jpg");
+                $resource->img = "resource_" . $id . "_" . time() . ".jpg";
+                $resource->Save();
+
+            }
         }
         elseif ($request->input('type') != null){
-            $id = $_POST['id'];
+
             $resource = \App\Resource::findOrFail($id);
             $resource->type = $request->input('type');
             $resource->save();
