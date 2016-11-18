@@ -120,6 +120,7 @@ class ResourceController extends Controller
         //
         if($_FILES['resource']['size'] != 0){
 
+            $id = $_POST['id'];
             $resource = \App\Resource::findOrFail($id);
 
             if($resource->img == "resource.jpg"){
