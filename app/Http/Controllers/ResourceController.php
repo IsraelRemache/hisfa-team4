@@ -59,16 +59,22 @@ class ResourceController extends Controller
         return view('products/add');
     }
 
-    public function add(Request $request)
+    public function renamefile()
     {
-        if($_FILES['resource']['size'] != 0) {
-            $resource = new resource;
-            $stock = new stock;
             $file = $_FILES["resource"]["name"];
             $array = explode('.', $file);
             $fileName=$array[0];
             $fileExt=$array[1];
             $newfile=$fileName."_".time().".".$fileExt;
+            return $newfile;
+    }
+
+    public function add(Request $request)
+    {
+        if($_FILES['resource']['size'] != 0) {
+            $resource = new resource;
+            $stock = new stock;
+            $newfile = $this->renamefile();
             $request->resource->move(public_path('images'), $newfile);
             $resource->type = $request->input('name');
             $resource->img = "$newfile";
