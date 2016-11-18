@@ -8,6 +8,6 @@ class Prime extends Model
 {
     //
     protected $prime = [
-        'type','name','quantity'
+        'name','quantity', 'resource_id',
     ];
 }

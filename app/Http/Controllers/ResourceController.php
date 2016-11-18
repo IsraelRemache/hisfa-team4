@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Resource;
+use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -14,13 +15,6 @@ class ResourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
-        //
-        $resources = \App\Resource::all($id);
-        $data['resources'] = $resources;
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -52,9 +46,10 @@ class ResourceController extends Controller
     public function show($id)
     {
         //
-
         $resource = \App\Resource::findOrFail($id);
+        $stock = \App\Stock::findOrFail($id);
         $data['resource'] = $resource;
+        $data['stock'] = $stock;
         return view('products/show', $data);
     }
 
@@ -68,10 +63,20 @@ class ResourceController extends Controller
     {
         if($_FILES['resource']['size'] != 0) {
             $resource = new resource;
-            $request->resource->move(public_path('images'),"resource_new.jpg");
+            $stock = new stock;
+            $file = $_FILES["resource"]["name"];
+            $array = explode('.', $file);
+            $fileName=$array[0];
+            $fileExt=$array[1];
+            $newfile=$fileName."_".time().".".$fileExt;
+            $request->resource->move(public_path('images'), $newfile);
             $resource->type = $request->input('name');
-            $resource->img = 'resource_new.jpg';
+            $resource->img = "$newfile";
+            $stock->quantity = $request->input('quantity');
             $resource->Save();
+            $stock->resource_id = $resource->id;
+            $stock->Save();
+
         }
         return redirect('home');
     }
@@ -95,21 +100,27 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
-
         if($_FILES['resource']['size'] != 0){
-
-            $request->resource->move(public_path('images'),"resource_$id.jpg");
+            $id = $_POST['id'];  
             $resource = \App\Resource::findOrFail($id);
-            $resource->img = "resource_$id.jpg";
+            $request->resource->move(public_path('images'),"resource_$id._$resource->updated_at.jpg");
+            $resource->img = "resource_$id._$resource->updated_at.jpg";
             $resource->Save();
         }
         elseif ($request->input('type') != null){
+            $id = $_POST['id'];
             $resource = \App\Resource::findOrFail($id);
             $resource->type = $request->input('type');
             $resource->save();
+        }
+        elseif ($request->input('quantity') != null){
+            $id = $_POST['id'];
+            $stock = \App\Stock::findOrFail($id);
+            $stock->quantity = $request->input('quantity');
+            $stock->save();
         }
         return redirect('home');
     }
@@ -120,10 +131,11 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
         if(isset($_POST['delete'])) {
+            $id = $_POST['id'];
             $resource = \App\Resource::findOrFail($id);
             $resource->delete();
         }

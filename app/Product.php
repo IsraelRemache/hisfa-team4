@@ -8,6 +8,6 @@ class Product extends Model
 {
     //
     protected $product = [
-        'type','img',
+        'length_id','quantity', 'quality_id',
     ];
 }

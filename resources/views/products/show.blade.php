@@ -10,10 +10,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{$resource->type}}</div>
-
+                    <div class="panel-heading" id="container_resource">
+                        <div><span class="name">{{$resource->type}}</span></div>
+                        <form action="{{ url("/resources/destroy")}}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" value="{{csrf_token()}}" name="_token">
+                            <input type="hidden" value="{{$resource->id}}" name="id">
+                            <button type="submit" class="btn-delete" name="delete">
+                                <i class="material-icons">&#xE872;</i>
+                                Delete {{$resource->type}}
+                            </button>
+                        </form>
+                    </div>
                     <div class="panel-body">
-                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/resources/resource_$resource->id")}}' enctype="multipart/form-data">
+                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/resources/update")}}' enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label class="col-md-4 control-label"></label>
@@ -32,15 +41,19 @@
                                     <input class="form-control" placeholder="{{$resource->type}}" name="type"></input>
                                 </div>
                             </div>
-
-                            <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">
+                            <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">Quantity</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="{{$stock->quantity}}" name="quantity"></input>
+                                </div>
+                            </div>
+                            <input type="hidden" value="{{$resource->id}}" name="id">
+                            <input type="hidden" value="{{csrf_token()}}" name="_token">                      
+                            <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Change
                                     </button> 
-                                    <button type="submit" class="btn btn-primary" name="delete">
-                                        Delete {{$resource->type}}
-                                    </button>
                                 </div>
                             </div>
                         </form>

@@ -30,8 +30,14 @@
                                     <input type="text" name="name">
                                 </div>
                             </div>
-
-                            <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">
+                            <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">Quantity</label>
+                                <div class="col-md-6">
+                                    <input type="text" name="quantity">
+                                </div>
+                            </div>
+                            <input type="hidden" value="{{csrf_token()}}" name="_token">                      
+                            <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary" name="add">
                                         Add

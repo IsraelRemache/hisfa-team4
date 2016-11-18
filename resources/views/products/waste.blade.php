@@ -13,7 +13,7 @@ $wastes = \App\Waste::all();
                     <div class="panel-heading">{{$waste->name}}</div>
 
                     <div class="panel-body">
-                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/wastes/waste_$waste->id")}}' enctype="multipart/form-data">
+                        <form id="profileform" class="form-horizontal" role="form" method="POST" action='{{ url("/wastes/update")}}' enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label class="col-md-4 control-label"></label>
@@ -31,17 +31,21 @@ $wastes = \App\Waste::all();
                                     <input type="text" name="cwastesiloquantity" value="{{$waste->quantity}}" class="form-control form-group" style="border: none;">
                                 </div>
                             </div>
-
+                            <input type="hidden" value="{{$waste->id}}" name="id">
                             <input type="hidden" value="{{csrf_token()}}" name="_token">                      <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" name="changewaste" class="btn btn-primary">
                                         Change
                                     </button>
-                                    <button type="submit" class="btn btn-primary" name="delete">
-                                        Delete {{$waste->name}}
-                                    </button>
                                 </div>
                             </div>
+                        </form>
+                        <form action="{{ url("/wastes/destroy")}}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" value="{{csrf_token()}}" name="_token">
+                            <input type="hidden" value="{{$waste->id}}" name="id">
+                            <button type="submit" class="btn btn-primary" name="delete">
+                                Delete {{$waste->name}}
+                            </button>
                         </form>
                     </div>
                 </div>

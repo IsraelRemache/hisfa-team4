@@ -73,20 +73,25 @@ class WasteController extends Controller
         return redirect('home');
     }
     
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
 
-        if(isset($_POST['changewaste'])) {
+        if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 100 ) {
 
-            if($request->input('cwastesiloname') != null || $request->input('cwastesiloquantity') !=null) {
+            if($_POST['cwastesiloname'] != null || $_POST['cwastesiloquantity'] !=null ) {
+                
+                $id = $_POST['id'];
                 $waste = \App\Waste::findOrFail($id);
-                $waste->name = $request->input('cwastesiloname');
-                $waste->quantity = $request->input('cwastesiloquantity');
+                $waste->name = $_POST['cwastesiloname'];
+                $waste->quantity = $_POST['cwastesiloquantity'];
                 $waste->Save();
-            }
-        }
 
+            }
+
+        }
         return redirect('home');
+
+
     }
     /**
      * Show the form for editing the specified resource.
@@ -113,10 +118,12 @@ class WasteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
         if(isset($_POST['delete'])) {
+            
+            $id = $_POST['id'];
             $waste = \App\Waste::findOrFail($id);
             $waste->delete();
 

@@ -31,13 +31,13 @@
                     
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($resources as $resource)
-                            <a href="resources/resource_{{$resource->id}}">
-                            <div class="flex-item1">
-                                <img class="resourceimage" src="images/{{ $resource->img }}" alt="Resource image">
-                                <p class="resourcename"> {{$resource->type}} </p>
-                                <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1"> {{$resource->quantity}} </p></div>
-                            </a>
-                            </div>
+                              <a href="resources/resource_{{$resource->id}}">
+                              <div class="flex-item1">
+                                  <img class="resourceimage" src="images/{{ $resource->img }}" alt="Resource image">
+                                  <p class="resourcename"> {{$resource->type}} </p>
+                                  <div class="octa-image"><img src="images/octabin.svg" alt="octabin_amount"> <p class="octanumber1"> {{$resource->quantity}} </p></div>
+                              </a>
+                              </div>
                         @endforeach
                     </div>
                 </div>

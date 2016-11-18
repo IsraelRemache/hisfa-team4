@@ -429,3 +429,34 @@ html, body {
 .navbar-brand{
     line-height:32px;
 }
+
+#container_resource {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.btn-delete {
+    background-color: transparent;
+    color: #3F3F3F;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-delete:hover {
+    background-color: transparent;
+    color: #7F7F7F;
+    border: none;
+}
+
+.btn-delete:active {
+    background-color: transparent;
+    border: none;
+}
+
+i {
+    padding-right: 5%;
+}

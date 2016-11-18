@@ -19,6 +19,7 @@ class CreateStocksTable extends Migration
             $table->integer('quantity');
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resources');
+            $table->timestamps();
         });
     }
 

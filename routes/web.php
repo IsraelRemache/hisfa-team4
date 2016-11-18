@@ -34,19 +34,19 @@ Route::post('/home', 'PrimeController@addprime');
 Route::get('/profile', 'UsersController@index');
 Route::post('/profile','UsersController@update');
 
-Route::get('/resources/resource_{id}', 'ResouceController@index');
-Route::post('/resources/resource_{id}','ResourceController@update');
-Route::post('/resources/resource_{id}','ResourceController@destroy');
 Route::get('/resources/resource_{id}' ,'ResourceController@show');
 Route::get('/resources/add', 'ResourceController@new_resource');
+Route::post('/resources/destroy','ResourceController@destroy');
 Route::post('/resources/add', 'ResourceController@add');
+Route::post('/resources/update','ResourceController@update');
 
 Route::get('/primes/prime_{id}', 'PrimeController@index');
 Route::get('/primes/prime_{id}' ,'PrimeController@show');
-Route::post('/primes/prime_{id}' ,'PrimeController@destroy');
-Route::post('/primes/prime_{id}' ,'PrimeController@update');
+Route::post('/primes/destroy' ,'PrimeController@destroy');
+Route::post('/primes/update' ,'PrimeController@update');
+
 
 Route::get('/wastes/waste_{id}', 'WasteController@index');
 Route::get('/wastes/waste_{id}' ,'WasteController@show');
-Route::post('/wastes/waste_{id}' ,'WasteController@destroy');
-Route::post('/wastes/waste_{id}' ,'WasteController@update');
+Route::post('/wastes/destroy' ,'WasteController@destroy');
+Route::post('/wastes/update' ,'WasteController@update');
