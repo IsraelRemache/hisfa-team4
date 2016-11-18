@@ -77,25 +77,30 @@
                               <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
-                                    <img src="images/red-circle.svg" alt="octabin_amount"> 
+                                    <img src="images/green-circle.svg" alt="octabin_amount"> 
                                     <p class="octanumber1">{{$quality->quantity}}</p>
                                   </div>
                                 @endif
                                 @if($quality->length == 6)
                                   <div class="octa-image">
-                                    <img src="images/green-circle.svg" alt="octabin_amount"> 
+                                    <img src="images/yellow-circle.svg" alt="octabin_amount"> 
                                     <p class="octanumber1">{{$quality->quantity}}</p>
                                   </div>
                                 @endif
                                 @if($quality->length == 8)
                                   <div class="octa-image">
-                                    <img src="images/yellow-circle.svg" alt="octabin_amount"> 
+                                    <img src="images/red-circle.svg" alt="octabin_amount"> 
                                     <p class="octanumber1">{{$quality->quantity}}</p>
                                   </div>
                                 @endif
                               </div>
+                              @foreach($qualities as $quality)
+                                {{$cubic = $quality->quantity*$quality->length}}  
+                              @endforeach
                               @endif
+                              
                             @endforeach
+                            
                           </div>
                         @endforeach
                     </div>      
@@ -118,7 +123,7 @@
                           </div>
                           <div class="modal-body">
                             
-                            <form method="POST">
+                            <form method="POST" action='{{ url("/addwaste")}}'>
                               Resource<select name="wasteresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
@@ -128,7 +133,7 @@
                               <input type="text" name="wastesiloname" placeholder="Silo name" class="input" style="border: none;">
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add silo</button>
+                            <button type="submit" name="addwaste" class="btn btn-primary">Add silo</button>
                            </form>
                             
                           </div>
@@ -181,7 +186,7 @@
                           </div>
                           <div class="modal-body">
                             
-                            <form method="POST">
+                            <form method="POST" action='{{ url("/addprime")}}' enctype="multipart/form-data">
                               Resource<select name="primeresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
@@ -191,7 +196,7 @@
                               <input type="text" name="primesiloname" placeholder="Silo name" class="input" style="border: none;">
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add silo</button>
+                            <button type="submit" name="addprime" class="btn btn-primary">Add silo</button>
                            </form>
                             
                           </div>

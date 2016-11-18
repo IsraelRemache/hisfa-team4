@@ -63,13 +63,12 @@ class WasteController extends Controller
 
     public function addwaste(Request $request)
     {
+        if(isset($_POST['addwaste'])){
         $waste = new waste;
-
-        
         $waste->name = $request->input('wastesiloname');
         $waste->resource_id = Input::get('wasteresource');
         $waste->Save();
-        
+        }
         return redirect('home');
     }
     

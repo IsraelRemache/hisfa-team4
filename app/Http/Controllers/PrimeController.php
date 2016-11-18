@@ -24,13 +24,12 @@ class PrimeController extends Controller
     
     public function addprime(Request $request)
     {
-        $prime = new prime;
-
-        
-        $prime->name = $request->input('primesiloname');
-        $prime->resource_id = Input::get('primeresource');
-        $prime->Save();
-        
+        if(isset($_POST['addprime'])){
+            $prime = new prime;
+            $prime->name = $request->input('primesiloname');
+            $prime->resource_id = Input::get('primeresource');
+            $prime->Save();
+        }
         return redirect('home');
     }
 
