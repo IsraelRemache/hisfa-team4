@@ -14,7 +14,8 @@
                         <div><span class="name">{{$resource->type}}</span></div>
                         <form action="{{ url("/resources/destroy")}}" method="post" enctype="multipart/form-data">
                             <input type="hidden" value="{{csrf_token()}}" name="_token">
-                            <input type="hidden" value="{{$resource->id}}" name="id">
+                            <input type="hidden" value="{{$resource->id}}" name="resource_id">
+                            <input type="hidden" value="{{$stock->id}}" name="stock_id">
                             <button type="submit" class="btn-delete" name="delete">
                                 <i class="material-icons">&#xE872;</i>
                                 Delete {{$resource->type}}

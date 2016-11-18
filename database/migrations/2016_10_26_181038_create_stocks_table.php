@@ -16,9 +16,9 @@ class CreateStocksTable extends Migration
         Schema::create('stocks', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('quantity');
+            $table->integer('quantity')->default('0');
             $table->integer('resource_id')->unsigned();
-            $table->foreign('resource_id')->references('id')->on('resources');
+            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -30,6 +30,9 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
+        Schema::table('stocks', function (Blueprint $table) {
+            $table->dropForeign('stocks_resource_id_foreign');
+        });
         Schema::drop('stocks');
     }
 }

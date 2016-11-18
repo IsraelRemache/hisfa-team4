@@ -73,17 +73,25 @@ class ResourceController extends Controller
     {
         if($_FILES['resource']['size'] != 0) {
             $resource = new resource;
-            $stock = new stock;
+
             $newfile = $this->renamefile();
             $request->resource->move(public_path('images'), $newfile);
-            $resource->type = $request->input('name');
             $resource->img = "$newfile";
-            $stock->quantity = $request->input('quantity');
-            $resource->Save();
-            $stock->resource_id = $resource->id;
-            $stock->Save();
-
         }
+
+        $resource = new resource;
+        $resource->type = $request->input('name');
+        $resource->Save();
+
+        if ($request->input('quantity') != null) {
+            $stock = new stock;
+            $stock->quantity = $request->input('quantity');
+        }
+
+        $stock = new stock;
+        $stock->resource_id = $resource->id;
+        $stock->Save();
+
         return redirect('home');
     }
     
@@ -141,8 +149,12 @@ class ResourceController extends Controller
     {
         //
         if(isset($_POST['delete'])) {
-            $id = $_POST['id'];
-            $resource = \App\Resource::findOrFail($id);
+            $resource_id = $_POST['resource_id'];
+            $stock_id = $_POST['stock_id'];
+            $resource = \App\Resource::findOrFail($resource_id);
+            $stock = \App\Resource::findOrFail($stock_id);
+
+            $stock->delete();
             $resource->delete();
         }
         return redirect('home');
