@@ -67,13 +67,16 @@
                     </div><!-- /.modal -->
 
                     <div class="flex-container1">
-                      @foreach ($results as $result)
+                    @foreach ($results as $result)
                         <div class="bottombox_qualities" id="flexbox">  
                           <div class="flex-name">
                             <p class="resourcename"> {{ $result }} </p>
                           </div>
-                          @foreach ($qualities as $quality)
-                            @if($quality->name == $result)
+                          @php 
+                          $cubic = 0 
+                          @endphp
+                        @foreach ($qualities as $quality)
+                          @if($quality->name == $result)
                               <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
@@ -94,15 +97,16 @@
                                   </div>
                                 @endif
                               </div>
-                              @foreach($qualities as $quality)
-                                {{$cubic = $quality->quantity*$quality->length}}  
-                              @endforeach
-                              @endif
-                              
-                            @endforeach
-                            
-                          </div>
+                              @php
+                                  $cubic = $cubic + $quality->quantity*$quality->length
+                              @endphp
+                            @endif
                         @endforeach
+                           @php
+                            echo "<p class='cubicmetres'> $cubic m&#179 </p>"
+                           @endphp
+                        </div>
+                    @endforeach
                     </div>      
                 </div>
             </div>
