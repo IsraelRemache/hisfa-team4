@@ -98,7 +98,7 @@
                                 @endif
                               </div>
                               @php
-                                  $cubic = $cubic + $quality->quantity*$quality->length
+                                  $cubic = round($cubic + $quality->quantity*$quality->length*1.03*1.29, 2)
                               @endphp
                             @endif
                         @endforeach
