@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Prime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\User;
+use App\Notifications\PrimeSiloStatus;
+use Illuminate\Support\Facades\Notification;
 
 class PrimeController extends Controller
 {
@@ -95,14 +98,19 @@ class PrimeController extends Controller
             if($_POST['cprimesiloname'] != null || $_POST['cprimesiloquantity'] !=null ) {
                 
                 $id = $_POST['id'];
-                $waste = \App\Prime::findOrFail($id);
-                $waste->name = $_POST['cprimesiloname'];
-                $waste->quantity = $_POST['cprimesiloquantity'];
-                $waste->Save();
+                $prime = \App\Prime::findOrFail($id);
+                $prime->name = $_POST['cprimesiloname'];
+                $prime->quantity = $_POST['cprimesiloquantity'];
+                $prime->Save();
             }
         }
+            if ($_POST['cprimesiloquantity'] >= 90) {
+                    $users = User::where('notifications', '1')->get();
+                    Notification::send($users, new PrimeSiloStatus($prime));
+                }
+
         return redirect('home');
-    }
+        }
 
     /**
      * Remove the specified resource from storage.

@@ -40,6 +40,12 @@ Route::post('/resources/destroy','ResourceController@destroy');
 Route::post('/resources/add', 'ResourceController@add');
 Route::post('/resources/update','ResourceController@update');
 
+Route::get('/qualities/quality_{id}' ,'QualityController@showquality');
+Route::get('/qualities/addquality', 'QualityController@new_quality');
+Route::post('/qualities/destroy','QualityController@destroy');
+Route::post('/qualities/addquality', 'QualityController@addquality');
+Route::post('/qualities/update','QualityController@update');
+
 Route::get('/primes/prime_{id}', 'PrimeController@index');
 Route::get('/primes/prime_{id}' ,'PrimeController@show');
 Route::post('/primes/destroy' ,'PrimeController@destroy');

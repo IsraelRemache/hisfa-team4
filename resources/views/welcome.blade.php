@@ -11,24 +11,6 @@
                     </div>
                     <!-- Toevoegen Resources -->
 
-                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalresources">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div><!-- /.modal-content -->
-                      </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($resources as $resource)
                             <a href="resources/resource_{{$resource->id}}">
@@ -48,23 +30,6 @@
                         <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks"></a>
                     </div>
                     <!-- Toevoegen Quality -->
-                    
-                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalquality">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div><!-- /.modal-content -->
-                      </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
 
                     <div class="flex-container1">
                       @foreach ($results as $result)
@@ -74,6 +39,7 @@
                           </div>
                           @foreach ($qualities as $quality)
                             @if($quality->name == $result)
+                            <a href="qualities/quality_{{$quality->id}}">
                               <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
@@ -94,10 +60,12 @@
                                   </div>
                                 @endif
                               </div>
+                              </a>
                               @endif
                             @endforeach
                           </div>
                         @endforeach
+                        
                     </div>      
                 </div>
             </div>
