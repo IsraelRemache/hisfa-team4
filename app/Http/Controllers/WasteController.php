@@ -76,7 +76,7 @@ class WasteController extends Controller
     public function update(Request $request)
     {
 
-        if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 100 ) {
+        if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 3300 ) {
 
             if($_POST['cwastesiloname'] != null || $_POST['cwastesiloquantity'] !=null ) {
                 

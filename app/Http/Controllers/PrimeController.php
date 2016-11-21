@@ -90,7 +90,7 @@ class PrimeController extends Controller
      */
     public function update()
     {
-        if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 100) {
+        if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 3300) {
 
             if($_POST['cprimesiloname'] != null || $_POST['cprimesiloquantity'] !=null ) {
                 

@@ -147,10 +147,10 @@
                             <a href="wastes/waste_{{$waste->id}}">
                             <div class="silos">
                                
-                                <p class="resourcetext">{{$waste->quantity}}%</p>
-                                @if(($waste->quantity) <= 40)
+                                <p class="resourcetext">{{round(($waste->quantity/3300)*100)}}%</p>
+                                @if(round(($waste->quantity/3300)*100) <= 40)
                                     <img src="images/silo-green.svg" alt="octabin_amount">
-                                @elseif(($waste->quantity) > 40 && $waste->quantity < 80)
+                                @elseif(round(($waste->quantity/3300)*100) > 40 && round(($waste->quantity/3300)*100) < 80)
                                     <img src="images/silo-orange.svg" alt="octabin_amount">
                                 @else
                                     <img src="images/silo-red.svg" alt="octabin_amount">
@@ -208,10 +208,10 @@
                             <div class="flex-item1">
                                 <a href="/primes/prime_{{$prime->id}}">
                                 <div class="silos">
-                                    <p class="resourcetext">{{(($prime->quantity))}}%</p>
-                                    @if(($prime->quantity) <= 40)
+                                    <p class="resourcetext">{{round(($prime->quantity/3300)*100)}}%</p>
+                                    @if(round(($prime->quantity/3300)*100) <= 40)
                                     <img src="images/silo-green.svg" alt="octabin_amount">
-                                   @elseif(($prime->quantity) > 40 && $prime->quantity < 80)
+                                   @elseif(round(($prime->quantity/3300)*100) > 40 && round(($prime->quantity/3300)*100) < 80)
                                     <img src="images/silo-orange.svg" alt="octabin_amount">
                                     @else
                                     <img src="images/silo-red.svg" alt="octabin_amount">
