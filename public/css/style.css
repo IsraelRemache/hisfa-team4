@@ -460,3 +460,9 @@ html, body {
 i {
     padding-right: 5%;
 }
+
+.cubicmetres{
+    text-align:center;
+    font-weight:bold;
+    color:#1B1E25;
+}

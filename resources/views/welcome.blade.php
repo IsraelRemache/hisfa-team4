@@ -67,37 +67,46 @@
                     </div><!-- /.modal -->
 
                     <div class="flex-container1">
-                      @foreach ($results as $result)
+                    @foreach ($results as $result)
                         <div class="bottombox_qualities" id="flexbox">  
                           <div class="flex-name">
                             <p class="resourcename"> {{ $result }} </p>
                           </div>
-                          @foreach ($qualities as $quality)
-                            @if($quality->name == $result)
+                          @php 
+                          $cubic = 0 
+                          @endphp
+                        @foreach ($qualities as $quality)
+                          @if($quality->name == $result)
                               <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
-                                  <div class="octa-image">
-                                    <img src="images/red-circle.svg" alt="octabin_amount"> 
-                                    <p class="octanumber1">{{$quality->quantity}}</p>
-                                  </div>
-                                @endif
-                                @if($quality->length == 6)
                                   <div class="octa-image">
                                     <img src="images/green-circle.svg" alt="octabin_amount"> 
                                     <p class="octanumber1">{{$quality->quantity}}</p>
                                   </div>
                                 @endif
-                                @if($quality->length == 8)
+                                @if($quality->length == 6)
                                   <div class="octa-image">
                                     <img src="images/yellow-circle.svg" alt="octabin_amount"> 
                                     <p class="octanumber1">{{$quality->quantity}}</p>
                                   </div>
                                 @endif
+                                @if($quality->length == 8)
+                                  <div class="octa-image">
+                                    <img src="images/red-circle.svg" alt="octabin_amount"> 
+                                    <p class="octanumber1">{{$quality->quantity}}</p>
+                                  </div>
+                                @endif
                               </div>
-                              @endif
-                            @endforeach
-                          </div>
+                              @php
+                                  $cubic = round($cubic + $quality->quantity*$quality->length*1.03*1.29, 2)
+                              @endphp
+                            @endif
                         @endforeach
+                           @php
+                            echo "<p class='cubicmetres'> $cubic m&#179 </p>"
+                           @endphp
+                        </div>
+                    @endforeach
                     </div>      
                 </div>
             </div>
@@ -118,7 +127,7 @@
                           </div>
                           <div class="modal-body">
                             
-                            <form method="POST">
+                            <form method="POST" action='{{ url("/addwaste")}}'>
                               Resource<select name="wasteresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
@@ -128,7 +137,7 @@
                               <input type="text" name="wastesiloname" placeholder="Silo name" class="input" style="border: none;">
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add silo</button>
+                            <button type="submit" name="addwaste" class="btn btn-primary">Add silo</button>
                            </form>
                             
                           </div>
@@ -147,10 +156,10 @@
                             <a href="wastes/waste_{{$waste->id}}">
                             <div class="silos">
                                
-                                <p class="resourcetext">{{$waste->quantity}}%</p>
-                                @if(($waste->quantity) <= 40)
+                                <p class="resourcetext">{{round(($waste->quantity/3300)*100)}}%</p>
+                                @if(round(($waste->quantity/3300)*100) <= 40)
                                     <img src="images/silo-green.svg" alt="octabin_amount">
-                                @elseif(($waste->quantity) > 40 && $waste->quantity < 80)
+                                @elseif(round(($waste->quantity/3300)*100) > 40 && round(($waste->quantity/3300)*100) < 80)
                                     <img src="images/silo-orange.svg" alt="octabin_amount">
                                 @else
                                     <img src="images/silo-red.svg" alt="octabin_amount">
@@ -181,7 +190,7 @@
                           </div>
                           <div class="modal-body">
                             
-                            <form method="POST">
+                            <form method="POST" action='{{ url("/addprime")}}' enctype="multipart/form-data">
                               Resource<select name="primeresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
@@ -191,7 +200,7 @@
                               <input type="text" name="primesiloname" placeholder="Silo name" class="input" style="border: none;">
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add silo</button>
+                            <button type="submit" name="addprime" class="btn btn-primary">Add silo</button>
                            </form>
                             
                           </div>
@@ -208,10 +217,10 @@
                             <div class="flex-item1">
                                 <a href="/primes/prime_{{$prime->id}}">
                                 <div class="silos">
-                                    <p class="resourcetext">{{(($prime->quantity))}}%</p>
-                                    @if(($prime->quantity) <= 40)
+                                    <p class="resourcetext">{{round(($prime->quantity/3300)*100)}}%</p>
+                                    @if(round(($prime->quantity/3300)*100) <= 40)
                                     <img src="images/silo-green.svg" alt="octabin_amount">
-                                   @elseif(($prime->quantity) > 40 && $prime->quantity < 80)
+                                   @elseif(round(($prime->quantity/3300)*100) > 40 && round(($prime->quantity/3300)*100) < 80)
                                     <img src="images/silo-orange.svg" alt="octabin_amount">
                                     @else
                                     <img src="images/silo-red.svg" alt="octabin_amount">

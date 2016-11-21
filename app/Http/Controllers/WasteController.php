@@ -63,20 +63,19 @@ class WasteController extends Controller
 
     public function addwaste(Request $request)
     {
+        if(isset($_POST['addwaste'])){
         $waste = new waste;
-
-        
         $waste->name = $request->input('wastesiloname');
         $waste->resource_id = Input::get('wasteresource');
         $waste->Save();
-        
+        }
         return redirect('home');
     }
     
     public function update(Request $request)
     {
 
-        if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 100 ) {
+        if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 3300 ) {
 
             if($_POST['cwastesiloname'] != null || $_POST['cwastesiloquantity'] !=null ) {
                 

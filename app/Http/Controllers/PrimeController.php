@@ -24,13 +24,12 @@ class PrimeController extends Controller
     
     public function addprime(Request $request)
     {
-        $prime = new prime;
-
-        
-        $prime->name = $request->input('primesiloname');
-        $prime->resource_id = Input::get('primeresource');
-        $prime->Save();
-        
+        if(isset($_POST['addprime'])){
+            $prime = new prime;
+            $prime->name = $request->input('primesiloname');
+            $prime->resource_id = Input::get('primeresource');
+            $prime->Save();
+        }
         return redirect('home');
     }
 
@@ -90,7 +89,7 @@ class PrimeController extends Controller
      */
     public function update()
     {
-        if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 100) {
+        if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 3300) {
 
             if($_POST['cprimesiloname'] != null || $_POST['cprimesiloquantity'] !=null ) {
                 
