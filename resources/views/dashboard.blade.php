@@ -34,10 +34,9 @@
                         <img src="uploads/{{Auth::user()->img}}" alt="profile image" class="profile-picture" >
                         <p class="profilename" >{{Auth::user()->name}}</p>
                     </div>
-                    <div class="lightdiv"><a data-toggle="modal" data-target="#Modalresources"><li>Add incoming resources</li></a></div>
-                    <div class="darkdiv"><a href="#"><li>Add blocks to stock</li></a></div>
-                    <div class="lightdiv"><a href="#"><li>Update waste silo's</li></a></div>
-                    <div class="darkdiv"><a href="#"><li>Update prime silo's</li></a></div>
+                    @if (Auth::user()->hasRole('admin'))
+                    <div class="darkdiv"><a href="roles/create"><li><i class="material-icons">&#xE7FE;</i>Add user</li></a></div>
+                    @endif
                     <div class="lightdiv"><a href="profile"><li><i class="material-icons">&#xE8A6;</i> Profile</li></a></div>
                     <div class="darkdiv">
                         <a href="{{ url('/logout') }}"

@@ -50,3 +50,7 @@ Route::get('/wastes/waste_{id}', 'WasteController@index');
 Route::get('/wastes/waste_{id}' ,'WasteController@show');
 Route::post('/wastes/destroy' ,'WasteController@destroy');
 Route::post('/wastes/update' ,'WasteController@update');
+
+//Route::get('roles/create', 'RolesController@store');
+Route::get('/roles/create', 'RolesController@show');
+Route::post('/roles/create', 'RolesController@store');
