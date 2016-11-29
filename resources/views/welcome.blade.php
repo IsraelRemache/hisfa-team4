@@ -5,7 +5,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
-                        <a href="resources/add"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
+                        <a href="resources/add"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockresources">
                         </a>
 
                     </div>
@@ -45,7 +45,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Blocks in stock <span class="infotekst">(quantity)</span>
-                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks"></a>
+                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockblocks"></a>
                     </div>
                     <!-- Toevoegen Quality -->
                     
@@ -117,7 +117,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Waste silo's
-                        <a data-toggle="modal" data-target="#Modalwaste"><img class="settingsicon" src="images/settings.svg" alt="settings_wastesilo's"></a>
+                        <a data-toggle="modal" data-target="#Modalwaste"><img class="settingsicon" src="images/settings1.svg" alt="settings_wastesilo's"></a>
                     </div>
                     
                     <!-- Toevoegen Quality -->
@@ -180,7 +180,7 @@
 
                 <div class="flex-item">
                     <div class="topbox_dashboard">Prime silo's
-                        <a data-toggle="modal" data-target="#Modalprime"><img class="settingsicon" src="images/settings.svg" alt="settings_primesilo's"></a>
+                        <a data-toggle="modal" data-target="#Modalprime"><img class="settingsicon" src="images/settings1.svg" alt="settings_primesilo's"></a>
                     </div>
                     
                     <!-- Toevoegen Quality -->
