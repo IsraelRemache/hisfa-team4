@@ -8,6 +8,12 @@ html, body {
     margin: 0;
 }
 
+.background-login{
+    background-image: url("../images/loginbackground.jpg");
+    background-size:cover;
+    height:100vh;
+}
+
 .full-height {
     height: 100vh;
 }
@@ -185,6 +191,12 @@ html, body {
     padding-bottom:30px;
 }
 
+.profilename{
+    width:150px;
+    text-align: center;
+    
+}
+
 .profile-picture {
     width: 150px;
 }
@@ -237,9 +249,6 @@ html, body {
     display: flex;
     justify-content: space-around;
     background-color: #F7F7F7;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
 }
 
 .infotekst{
@@ -264,8 +273,20 @@ html, body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height:auto;
-
 }
+
+.footer_dashboard{
+    background-color:#EFEFEF;
+    height:40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top:9px;
+    padding-left:10px;
+    color:#1D2027;
+    font-weight:600;
+    border-top: 1px solid #CECECE;
+}
+
 
 .bottombox_qualities{
     flex-direction: column;
@@ -466,3 +487,14 @@ i {
     font-weight:bold;
     color:#1B1E25;
 }
+
+.legende{
+    float:right;
+    width:180px;
+}
+
+.legend-img{
+    width:20px;
+    padding:5px;
+}
+

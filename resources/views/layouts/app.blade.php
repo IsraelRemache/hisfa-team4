@@ -23,7 +23,7 @@
     </script>
 </head>
 <body>
-    <div id="app">
+   <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -47,7 +47,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
