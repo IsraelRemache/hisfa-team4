@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Waste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\User;
 
 class WasteController extends Controller
 {
@@ -72,7 +73,7 @@ class WasteController extends Controller
         return redirect('home');
     }
     
-    public function update(Request $request)
+    public function update()
     {
 
         if(isset($_POST['changewaste']) && $_POST['cwastesiloquantity'] <= 3300 ) {
@@ -88,6 +89,11 @@ class WasteController extends Controller
             }
 
         }
+        if ($_POST['cwastesiloquantity'] >= 90) {
+                    $users = User::where('notifications', '1')->get();
+                    Notification::send($users, new WasteSiloStatus($waste));
+                }
+                
         return redirect('home');
 
 
