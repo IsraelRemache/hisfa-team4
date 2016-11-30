@@ -5,7 +5,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Stock resources <span class="infotekst">(in ton)</span>
-                        <a href="resources/add"><img class="settingsicon" src="images/settings.svg" alt="settings_stockresources">
+                        <a href="resources/add"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockresources">
                         </a>
 
                     </div>
@@ -45,7 +45,7 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Blocks in stock <span class="infotekst">(quantity)</span>
-                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings.svg" alt="settings_stockblocks"></a>
+                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockblocks"></a>
                     </div>
                     <!-- Toevoegen Quality -->
                     
@@ -107,14 +107,17 @@
                            @endphp
                         </div>
                     @endforeach
-                    </div>      
+                    </div>  
+                    <div class="footer_dashboard">
+                        <div class="legende"><img class="legend-img" src="images/green-circle.svg" alt="octabin_amount"> 4m <img class="legend-img" src="images/yellow-circle.svg" alt="octabin_amount"> 6m <img class="legend-img" src="images/red-circle.svg" alt="octabin_amount"> 8m</div>
+                    </div>    
                 </div>
             </div>
             <!-- -------------------------Waste en prime silo's------------------------------ -->
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Waste silo's
-                        <a data-toggle="modal" data-target="#Modalwaste"><img class="settingsicon" src="images/settings.svg" alt="settings_wastesilo's"></a>
+                        <a data-toggle="modal" data-target="#Modalwaste"><img class="settingsicon" src="images/settings1.svg" alt="settings_wastesilo's"></a>
                     </div>
                     
                     <!-- Toevoegen Quality -->
@@ -128,13 +131,13 @@
                           <div class="modal-body">
                             
                             <form method="POST" action='{{ url("/addwaste")}}'>
-                              Resource<select name="wasteresource">
+                              Resource  <select name="wasteresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
                               @endforeach
-                              </select>
+                              </select><br/>
                               
-                              <input type="text" name="wastesiloname" placeholder="Silo name" class="input" style="border: none;">
+                              <input type="text" name="wastesiloname" placeholder="Silo name" class="input" style="border: none;"><br/>
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" name="addwaste" class="btn btn-primary">Add silo</button>
@@ -177,7 +180,7 @@
 
                 <div class="flex-item">
                     <div class="topbox_dashboard">Prime silo's
-                        <a data-toggle="modal" data-target="#Modalprime"><img class="settingsicon" src="images/settings.svg" alt="settings_primesilo's"></a>
+                        <a data-toggle="modal" data-target="#Modalprime"><img class="settingsicon" src="images/settings1.svg" alt="settings_primesilo's"></a>
                     </div>
                     
                     <!-- Toevoegen Quality -->
@@ -191,13 +194,13 @@
                           <div class="modal-body">
                             
                             <form method="POST" action='{{ url("/addprime")}}' enctype="multipart/form-data">
-                              Resource<select name="primeresource">
+                              Resource  <select name="primeresource">
                               @foreach ($resources as $resource)
                               <option value="{{$resource->id}}">{{$resource->type}}</option>
                               @endforeach
-                              </select>
+                              </select><br/>
                               
-                              <input type="text" name="primesiloname" placeholder="Silo name" class="input" style="border: none;">
+                              Prime silo name  <input type="text" name="primesiloname" placeholder="Silo name" class="input" style="border: none;"><br/>
                               <input type="hidden" value="{{csrf_token()}}" name="_token">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="submit" name="addprime" class="btn btn-primary">Add silo</button>
@@ -237,6 +240,7 @@
                     </div>
 
                 </div>
+                   
                     </div>
                 </div>
             </div>
