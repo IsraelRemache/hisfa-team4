@@ -46,12 +46,10 @@ Route::post('/qualities/destroy','QualityController@destroy');
 Route::post('/qualities/addquality', 'QualityController@add');
 Route::post('/qualities/update','QualityController@update');
 
-
 Route::get('/primes/prime_{id}', 'PrimeController@index');
 Route::get('/primes/prime_{id}' ,'PrimeController@show');
 Route::post('/primes/destroy' ,'PrimeController@destroy');
 Route::post('/primes/update' ,'PrimeController@update');
-
 
 Route::get('/wastes/waste_{id}', 'WasteController@index');
 Route::get('/wastes/waste_{id}' ,'WasteController@show');

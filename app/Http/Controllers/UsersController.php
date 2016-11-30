@@ -43,7 +43,9 @@ class UsersController extends Controller
             $user->notifications = false;
             $user->Save();
         }
-        return view('pages/profile', array('users'=> Auth::user()) );
+        //return view('pages/profile', array('users'=> Auth::user()) );
+
+        return redirect('home');
     }
     
 }

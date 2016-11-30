@@ -11,24 +11,6 @@
                     </div>
                     <!-- Toevoegen Resources -->
 
-                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalresources">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div><!-- /.modal-content -->
-                      </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    
                     <div class="bottombox_dashboard" id="flexbox">
                         @foreach ($resources as $resource)
                             <a href="resources/resource_{{$resource->id}}">
