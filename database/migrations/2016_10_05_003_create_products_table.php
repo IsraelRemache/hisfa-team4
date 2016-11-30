@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantity');
             $table->integer('quality_id')->unsigned();
             $table->foreign('quality_id')->references('id')->on('qualities');
+            $table->timestamps();
         });
     }
 

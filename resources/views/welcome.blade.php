@@ -45,26 +45,9 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <div class="topbox_dashboard">Blocks in stock <span class="infotekst">(quantity)</span>
-                        <a data-toggle="modal" data-target="#Modalquality"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockblocks"></a>
+                        <a href="qualities/addquality"><img class="settingsicon" src="images/settings1.svg" alt="settings_stockblocks"></a>
                     </div>
                     <!-- Toevoegen Quality -->
-                    
-                    <div class="modal fade" tabindex="-1" role="dialog" id="Modalquality">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <input type="text" placeholder="Title" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-body">
-                            <input type="text" placeholder="Body" class="input" style="border: none;">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div><!-- /.modal-content -->
-                      </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
 
                     <div class="flex-container1">
                     @foreach ($results as $result)
@@ -77,6 +60,7 @@
                           @endphp
                         @foreach ($qualities as $quality)
                           @if($quality->name == $result)
+                          <a href="qualities/quality_{{$quality->id}}">
                               <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
@@ -97,13 +81,14 @@
                                   </div>
                                 @endif
                               </div>
+                               </a>
                               @php
-                                  $cubic = round($cubic + $quality->quantity*$quality->length*1.03*1.29, 2)
+                                  $cubic = round($cubic + $quality->quantity*$quality->length*1.03*1.29, 2);
                               @endphp
                             @endif
                         @endforeach
                            @php
-                            echo "<p class='cubicmetres'> $cubic m&#179 </p>"
+                            echo "<p class='cubicmetres'> $cubic m&#179 </p>";
                            @endphp
                         </div>
                     @endforeach
