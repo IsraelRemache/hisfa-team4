@@ -30,7 +30,7 @@
 
                 <ul id="menu">
                     <div class="profile-info">
-                        <img class="settingsiconwhite" src="images/settingswhite.svg" alt="settings_wastesilo's">
+
                         <img src="uploads/{{Auth::user()->img}}" alt="profile image" class="profile-picture" >
                         <p class="profilename" >{{Auth::user()->name}}</p>
                     </div>
