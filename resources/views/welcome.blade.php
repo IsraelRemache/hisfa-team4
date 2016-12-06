@@ -43,7 +43,7 @@
                         @foreach ($qualities as $quality)
                           @if($quality->name == $result)
                           <a href="qualities/quality_{{$quality->id}}">
-                              <div class="flex-circle{{$quality->quality_id}}">
+                              <div class="flex-circle{{$quality->id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
                                     <img src="images/green-circle.svg" alt="octabin_amount"> 

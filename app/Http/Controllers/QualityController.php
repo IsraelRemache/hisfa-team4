@@ -36,12 +36,12 @@ class QualityController extends Controller
         $quality->name = $request->input('name');
         $quality->Save();
 
-        $length = new length;
-        $length->length = $request->get('selectlength');
-        $length->save();
+        //$length = new length;
+        //$product->length_id = $length->id;
+        //$length->save();
 
         $product = new product;
-        $product->length_id = $length->id;
+        $product->length_id = $request->get('selectlength');
         $product->quantity = $request->input('quantity');
         $product->quality_id = $quality->id;
         $product->save();
@@ -62,10 +62,16 @@ class QualityController extends Controller
             $product->quantity = $request->input('quantity');
             $product->save();
         }
-            $id = $_POST['id'];
-            $length = \App\Length::findOrFail($id);
-            $length->length = $request->get('selectlength');
-            $length->save();
+        $id = $_POST['id'];
+        $product = \App\Product::findOrFail($id);
+        $product->length_id = $request->get('selectlength');
+        $product->save();
+
+
+           // $id = $_POST['id'];
+            //$length = \App\Length::findOrFail($id);
+            //$length->length = $request->get('selectlength');
+            //$length->save();
         
 
 

@@ -3,9 +3,7 @@
 
     $user = \Auth::user();
     $qualities = \App\Quality::all();
-    $products = \App\Product::all();
     $lengths = \App\Length::all();
-
 ?>
 @section('content')
     <div class="container">
@@ -36,24 +34,26 @@
                                     <input class="form-control" placeholder="{{$quality->name}}" name="name"></input>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Length</label>
-                                <div class="col-md-6">
-                                    <input class="form-control" placeholder="{{$length->length}}" name="length"></input>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-6">
-                                    <select name="selectlength">
+                                    <input class="form-control" placeholder="{{$product->quantity}}" name="quantity"></input>
+
+                                    <!-- <input class="form-control" placeholder="" name="quantity"></input>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">Length</label>
+                                <div class="col-md-6">
+                                <select name="selectlength">
                                         <option value="">Select a length
                                         </option>
                                         @foreach($lengths as $length)
                                             <option value="{{ $length->id }}">{{ $length->length }}</option>
                                         @endforeach
                                     </select>
-
-                                    <!-- <input class="form-control" placeholder="" name="quantity"></input>-->
+                                    
                                 </div>
                             </div>
                             <input type="hidden" value="{{$quality->id}}" name="id">
