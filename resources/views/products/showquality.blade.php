@@ -31,7 +31,13 @@
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Quality Name</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="{{$quality->name}}" name="name"></input>
+                                <select name="name">
+                                        <option value="">Select a quality
+                                        </option>
+                                        @foreach($qualities as $quality)
+                                            <option value="{{ $quality->id }}">{{ $quality->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             
