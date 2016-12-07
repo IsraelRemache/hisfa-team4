@@ -139,17 +139,24 @@ class ResourceController extends Controller
 
             }
         }
-        elseif ($request->input('type') != null){
+        elseif ($request->input('type') != null ){
 
             $resource = \App\Resource::findOrFail($id);
             $resource->type = $request->input('type');
             $resource->save();
         }
         elseif ($request->input('quantity') != null){
+
+            if(is_numeric($request->input('quantity'))){
             $id = $_POST['id'];
             $stock = \App\Stock::findOrFail($id);
             $stock->quantity = $request->input('quantity');
             $stock->save();
+            }
+            else
+            {
+                return redirect('home');
+            }
         }
         return redirect('home');
     }

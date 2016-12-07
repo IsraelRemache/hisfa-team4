@@ -95,12 +95,17 @@ class PrimeController extends Controller
         if(isset($_POST['changeprime']) && $_POST['cprimesiloquantity'] <= 3300) {
 
             if($_POST['cprimesiloname'] != null || $_POST['cprimesiloquantity'] !=null ) {
-                
-                $id = $_POST['id'];
-                $prime = \App\Prime::findOrFail($id);
-                $prime->name = $_POST['cprimesiloname'];
-                $prime->quantity = $_POST['cprimesiloquantity'];
-                $prime->Save();
+
+                if(is_numeric($_POST['cprimesiloquantity'])) {
+                    $id = $_POST['id'];
+                    $prime = \App\Prime::findOrFail($id);
+                    $prime->name = $_POST['cprimesiloname'];
+                    $prime->quantity = $_POST['cprimesiloquantity'];
+                    $prime->Save();
+                }
+                else {
+                    return redirect('home');
+                }
             }
         }
             if ($_POST['cprimesiloquantity'] >= 90) {

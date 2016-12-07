@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Waste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\WasteSiloStatus;
 use App\User;
 
 class WasteController extends Controller
@@ -80,11 +82,16 @@ class WasteController extends Controller
 
             if($_POST['cwastesiloname'] != null || $_POST['cwastesiloquantity'] !=null ) {
                 
-                $id = $_POST['id'];
-                $waste = \App\Waste::findOrFail($id);
-                $waste->name = $_POST['cwastesiloname'];
-                $waste->quantity = $_POST['cwastesiloquantity'];
-                $waste->Save();
+                if(is_numeric($_POST['cwastesiloquantity'])) {
+                    $id = $_POST['id'];
+                    $waste = \App\Waste::findOrFail($id);
+                    $waste->name = $_POST['cwastesiloname'];
+                    $waste->quantity = $_POST['cwastesiloquantity'];
+                    $waste->Save();
+                }
+                else{
+                    return redirect('home');
+                }
 
             }
 
