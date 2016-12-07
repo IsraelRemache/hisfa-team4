@@ -8,6 +8,7 @@ use App\Role;
 use App\RoleUser;
 use App\User;
 use Hash;
+use DB;
 
 class RolesController extends Controller
 {
@@ -36,5 +37,12 @@ class RolesController extends Controller
         }
 
         return redirect('home');
+    }
+
+    public function users() {
+    $users = DB::table('role_user')->select('roles.name as role_name', 'users.name', 'users.email')->join('users', 'users.id', '=', 'role_user.user_id')->join('roles', 'roles.id', '=', 'role_user.role_id')->get();
+    $roles = \App\Role::all();
+
+    return view('roles/users', compact('users', 'roles')); 
     }
 }

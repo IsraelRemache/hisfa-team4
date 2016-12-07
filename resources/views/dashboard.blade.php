@@ -35,9 +35,10 @@
                         <p class="profilename" >{{Auth::user()->name}}</p>
                     </div>
                     @if (Auth::user()->hasRole('admin'))
+                    <div class="darkdiv"><a href="roles/users"><li><i class="material-icons">&#xE7FB;</i>Users</li></a></div>
                     <div class="darkdiv"><a href="roles/create"><li><i class="material-icons">&#xE7FE;</i>Add user</li></a></div>
                     @endif
-                    <div class="lightdiv"><a href="profile"><li><i class="material-icons">&#xE8A6;</i> Profile</li></a></div>
+                    <div class="lightdiv"><a href="profile"><li><i class="material-icons">&#xE7FD;</i>Profile</li></a></div>
                     <div class="darkdiv">
                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
