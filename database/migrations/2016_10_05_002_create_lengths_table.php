@@ -17,6 +17,7 @@ class CreateLengthsTable extends Migration
         {
             $table->increments('id');
             $table->integer('length');
+            $table->timestamps();
         });
     }
 
