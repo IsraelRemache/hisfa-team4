@@ -8,6 +8,7 @@ use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use File;
+use Validator;
 
 class ResourceController extends Controller
 {
@@ -118,46 +119,50 @@ class ResourceController extends Controller
     public function update(Request $request)
     {
         //
-        if($_FILES['resource']['size'] != 0){
 
-            $id = $_POST['id'];
-            $resource = \App\Resource::findOrFail($id);
 
-            if($resource->img == "resource.jpg"){
 
-                $request->resource->move(public_path('images'), "resource_" . $id . "_" .time() . ".jpg");
-                $resource->img = "resource_" . $id . "_" . time() . ".jpg";
-                $resource->Save();
+            $file = $request->resource;
+            $fileArray = array('image' => $file);
+            $rules = array('image' => 'mimes:jpeg,jpg,png,gif|required|max:10000');
+            $validator = Validator::make($fileArray, $rules);
 
+            if ($_FILES['resource']['size'] != 0 && !$validator->fails()) {
+
+                $id = $_POST['id'];
+                $resource = \App\Resource::findOrFail($id);
+
+                if ($resource->img == "resource.jpg") {
+
+                    $request->resource->move(public_path('images'), "resource_" . $id . "_" . time() . ".jpg");
+                    $resource->img = "resource_" . $id . "_" . time() . ".jpg";
+                    $resource->Save();
+
+                } else {
+
+                    File::delete("images/" . $resource->img);
+                    $request->resource->move(public_path('images'), "resource_" . $id . "_" . time() . ".jpg");
+                    $resource->img = "resource_" . $id . "_" . time() . ".jpg";
+                    $resource->Save();
+
+                }
+            } elseif ($request->input('type') != null) {
+
+                $resource = \App\Resource::findOrFail($id);
+                $resource->type = $request->input('type');
+                $resource->save();
+            } elseif ($request->input('quantity') != null) {
+
+                if (is_numeric($request->input('quantity'))) {
+                    $id = $_POST['id'];
+                    $stock = \App\Stock::findOrFail($id);
+                    $stock->quantity = $request->input('quantity');
+                    $stock->save();
+                } else {
+                    return redirect('home');
+                }
             }
-            else{
-                
-                File::delete("images/" . $resource->img);
-                $request->resource->move(public_path('images'), "resource_" . $id . "_" .time() . ".jpg");
-                $resource->img = "resource_" . $id . "_" . time() . ".jpg";
-                $resource->Save();
-
-            }
-        }
-        elseif ($request->input('type') != null ){
-
-            $resource = \App\Resource::findOrFail($id);
-            $resource->type = $request->input('type');
-            $resource->save();
-        }
-        elseif ($request->input('quantity') != null){
-
-            if(is_numeric($request->input('quantity'))){
-            $id = $_POST['id'];
-            $stock = \App\Stock::findOrFail($id);
-            $stock->quantity = $request->input('quantity');
-            $stock->save();
-            }
-            else
-            {
-                return redirect('home');
-            }
-        }
+        
         return redirect('home');
     }
 

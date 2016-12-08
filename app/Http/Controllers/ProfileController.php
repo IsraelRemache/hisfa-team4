@@ -15,7 +15,7 @@ class ProfileController extends Controller
     }
 
     public function upload(Request $request){
-        //$request->picture->move(public_path('uploads'),"profile.jpg");
+       
 
         
     }
