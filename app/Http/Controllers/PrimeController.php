@@ -108,7 +108,7 @@ class PrimeController extends Controller
                 }
             }
         }
-            if ($_POST['cprimesiloquantity'] >= 90) {
+            if ($_POST['cprimesiloquantity'] >= 2970) {
                     $users = User::where('notifications', '1')->get();
                     Notification::send($users, new PrimeSiloStatus($prime));
                 }

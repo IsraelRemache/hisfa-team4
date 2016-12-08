@@ -96,7 +96,7 @@ class WasteController extends Controller
             }
 
         }
-        if ($_POST['cwastesiloquantity'] >= 90) {
+        if ($_POST['cwastesiloquantity'] >= 2970) {
                     $users = User::where('notifications', '1')->get();
                     Notification::send($users, new WasteSiloStatus($waste));
                 }
