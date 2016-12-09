@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use Image;
 use Illuminate\Support\Facades\DB;
 use File;
+use Validator;
 
 class UsersController extends Controller
 {
@@ -21,7 +22,12 @@ class UsersController extends Controller
     public function update(Request $request){
 
 
-        if($_FILES['picture']['size'] != 0){
+        $file = $request->picture;
+        $fileArray = array('image' => $file);
+        $rules = array('image' => 'mimes:jpeg,jpg,png|required|max:10000');
+        $validator = Validator::make($fileArray, $rules);
+
+        if($_FILES['picture']['size'] != 0 && !$validator->fails()){
 
             if(\Auth::user()->img == "default.png"){
 

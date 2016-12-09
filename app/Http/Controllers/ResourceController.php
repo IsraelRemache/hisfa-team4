@@ -118,13 +118,10 @@ class ResourceController extends Controller
      */
     public function update(Request $request)
     {
-        //
-
-
-
+        
             $file = $request->resource;
             $fileArray = array('image' => $file);
-            $rules = array('image' => 'mimes:jpeg,jpg,png,gif|required|max:10000');
+            $rules = array('image' => 'mimes:jpeg,jpg,png|required|max:10000');
             $validator = Validator::make($fileArray, $rules);
 
             if ($_FILES['resource']['size'] != 0 && !$validator->fails()) {
@@ -162,7 +159,7 @@ class ResourceController extends Controller
                     return redirect('home');
                 }
             }
-        
+
         return redirect('home');
     }
 
