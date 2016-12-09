@@ -26,12 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $resources = DB::table('stocks')->join('resources', 'resources.id', '=', 'stocks.resource_id')->get();
-        $qualities = DB::table('products')->join('qualities', 'qualities.id', '=', 'products.quality_id')->join('lengths', 'lengths.id', '=', 'products.length_id')->orderBy('name', 'asc')->orderBy('lengths.length', 'asc')->get();
+        $qualities = DB::table('products')->select('products.id as product_id','lengths.id as length_id','lengths.length as length','qualities.id as quality_id','quantity','qualities.name as quality_name')->join('qualities', 'qualities.id', '=', 'products.quality_id')->join('lengths', 'lengths.id', '=', 'products.length_id')->orderBy('name', 'asc')->orderBy('lengths.length', 'asc')->get();
         $wastes = DB::table('resources')->join('wastes', 'resources.id', '=', 'wastes.resource_id')->orderBy('wastes.name')->get();
         $primes = DB::table('resources')->join('primes', 'resources.id', '=', 'primes.resource_id')->orderBy('primes.name')->get();
         $input = [];
         foreach ($qualities as $quality) {
-            array_push($input, $quality->name);
+            array_push($input, $quality->quality_name);
         }
         $results = array_unique($input);
         return view('welcome', compact('resources', 'qualities', 'wastes', 'primes', 'results'));

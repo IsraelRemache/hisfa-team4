@@ -41,9 +41,9 @@
                           $cubic = 0 
                           @endphp
                         @foreach ($qualities as $quality)
-                          @if($quality->name == $result)
-                          <a href="qualities/quality_{{$quality->id}}">
-                              <div class="flex-circle{{$quality->id}}">
+                          @if($quality->quality_name == $result)
+                          <a href="qualities/quality_{{$quality->quality_id}}">
+                              <div class="flex-circle{{$quality->quality_id}}">
                                 @if($quality->length == 4)
                                   <div class="octa-image">
                                     <img src="images/green-circle.svg" alt="octabin_amount"> 
@@ -65,7 +65,7 @@
                               </div>
                                </a>
                               @php
-                                  $cubic = round($cubic + $quality->quantity*$quality->length*1.03*1.29, 2);
+                                  $cubic = round($cubic + $quality->quantity*$quality->length_id*1.03*1.29, 2);
                               @endphp
                             @endif
                         @endforeach

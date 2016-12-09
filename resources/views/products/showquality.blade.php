@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="{{$product->quantity}}" name="quantity"></input>
+                                    <input class="form-control" placeholder="{{$product->quantity}}" name="quantity">
 
                                     <!-- <input class="form-control" placeholder="" name="quantity"></input>-->
                                 </div>
