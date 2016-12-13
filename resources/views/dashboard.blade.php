@@ -46,7 +46,7 @@
                                             <li><i class="material-icons">&#xE879;</i> Logout</li>
                         </a>
 
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" ">
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST">
                             {{ csrf_field() }}
                         </form>
                     </div>

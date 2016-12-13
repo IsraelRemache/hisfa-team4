@@ -22,7 +22,8 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body class="bgoverlay">
+
    <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

@@ -276,7 +276,7 @@ html, body {
 }
 
 .footer_dashboard{
-    background-color:#EFEFEF;
+    background-color:#F7F7F7;
     height:40px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -498,3 +498,15 @@ i {
     padding:5px;
 }
 
+.bgoverlay{
+    background-image:url(../images/loginbackground.jpg);
+    background-size:cover;
+}
+
+a{
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:none;
+}
