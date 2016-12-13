@@ -498,10 +498,7 @@ i {
     padding:5px;
 }
 
-.bgoverlay{
-    background-image:url(../images/loginbackground.jpg);
-    background-size:cover;
-}
+
 
 a{
     text-decoration:none;
