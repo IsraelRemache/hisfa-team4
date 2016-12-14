@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 use Auth;
 use App\Role;
 use App\RoleUser;
@@ -39,8 +41,19 @@ class RolesController extends Controller
         return redirect('home');
     }
 
+    public function update(Request $request)
+    {
+        $id = $_POST['id'];
+        $role_user = \App\RoleUser::findOrFail($id);
+        $role_user->user_id = $_POST['user_id'];
+        $role_user->role_id = $request->input('role_id');
+        $role_user->save();
+
+        return redirect('home');
+    }
+
     public function users() {
-    $users = DB::table('role_user')->select('roles.name as role_name', 'users.name', 'users.email')->join('users', 'users.id', '=', 'role_user.user_id')->join('roles', 'roles.id', '=', 'role_user.role_id')->get();
+    $users = DB::table('role_user')->select('roles.name as role_name', 'users.name', 'users.email', 'role_user.role_id', 'role_user.user_id', 'role_user.id')->join('users', 'users.id', '=', 'role_user.user_id')->join('roles', 'roles.id', '=', 'role_user.role_id')->get();
     $roles = \App\Role::all();
 
     return view('roles/users', compact('users', 'roles')); 

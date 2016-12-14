@@ -60,3 +60,4 @@ Route::get('/roles/create', 'RolesController@show');
 Route::post('/roles/create', 'RolesController@store');
 
 Route::get('/roles/users', 'RolesController@users');
+Route::post('/roles/users', 'RolesController@update');
